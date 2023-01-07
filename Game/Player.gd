@@ -2,9 +2,12 @@ extends CharacterBody2D
 
 @export var MOVEMENT_SPEED = 300.0
 
-const BoomerangScene = preload("res://Boomerang.tscn")
+const BoomerangScene = preload("res://Game/Boomerang.tscn")
 
 var boomerang
+
+func _draw():
+	draw_rect(Rect2(Vector2.ZERO, $CollisionShape2D.shape.size), Color.BLUE)
 
 func _ready():
 	boomerang = BoomerangScene.instantiate()
@@ -30,3 +33,7 @@ func throw_or_return():
 		boomerang.throw()
 	elif boomerang.state == Boomerang.BoomerangState.FLYING:
 		boomerang.start_returning()
+
+
+func take_damage(damage: float):
+	print("took ", damage, " damage!")

@@ -12,7 +12,7 @@ _global_script_classes=[{
 "base": "RigidBody2D",
 "class": &"Boomerang",
 "language": &"GDScript",
-"path": "res://Boomerang.gd"
+"path": "res://Game/Boomerang.gd"
 }]
 _global_script_class_icons={
 "Boomerang": ""

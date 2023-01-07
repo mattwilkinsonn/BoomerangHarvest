@@ -1,8 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://ccyqbjgxd33a7"]
 
-[ext_resource type="PackedScene" uid="uid://da2qqksh1gdrm" path="res://Player.tscn" id="1_ajbdi"]
+[ext_resource type="Script" path="res://Main.gd" id="1_3juqo"]
 
 [node name="Main" type="Node2D"]
-position = Vector2(593, 345)
-
-[node name="Player" parent="." instance=ExtResource("1_ajbdi")]
+script = ExtResource("1_3juqo")
+metadata/_edit_horizontal_guides_ = [465.0]

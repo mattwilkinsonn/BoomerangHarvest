@@ -1,6 +1,7 @@
 extends RigidBody2D
 class_name Boomerang
 
+const Plant = preload("res://Game/Plant.gd")
 
 enum BoomerangState {
 	ON_PLAYER,
@@ -14,11 +15,12 @@ var state: BoomerangState = BoomerangState.ON_PLAYER
 
 @export var THROW_FORCE = 600.0
 @export var THROW_TORQUE = 20.0
-@export var MIN_RETURNING_FORCE = 200.0
-@export var MAX_RETURNING_FORCE = 10000.0
+@export var MIN_RETURNING_FORCE = 2000.0
+@export var MAX_RETURNING_FORCE = 5000.0
 @export var RETURN_TORQUE = 10.0
 @export var RETURNING_FORCE_DISTANCE_SCALING_LIMIT = 1000
 @export var MAX_VELOCITY = 500.0
+@export var RETURN_PREDICTION_MODIFIER = 0.8
 
 var slope = (MAX_RETURNING_FORCE - MIN_RETURNING_FORCE) / (0 - RETURNING_FORCE_DISTANCE_SCALING_LIMIT)
 # Called when the node enters the scene tree for the first time.
@@ -34,14 +36,14 @@ func set_on_player():
 
 func _physics_process(delta):
 	if state == BoomerangState.ON_PLAYER:
-		global_position = player.global_position + Vector2(10, -10)
+		global_position = player.global_position + Vector2(20, -10)
 		
 	if state == BoomerangState.RETURNING:
 		apply_returning_force()
 
-func _integrate_forces(state: PhysicsDirectBodyState2D):
-	if state.linear_velocity.length() > MAX_VELOCITY:
-		state.linear_velocity = state.linear_velocity.normalized() * MAX_VELOCITY
+func _integrate_forces(physics_state: PhysicsDirectBodyState2D):
+	if physics_state.linear_velocity.length() > MAX_VELOCITY:
+		physics_state.linear_velocity = physics_state.linear_velocity.normalized() * MAX_VELOCITY
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -49,9 +51,13 @@ func _process(delta):
 
 
 func apply_returning_force():
-	var direction = global_position.direction_to(player.global_position)
+	var seconds_to_player = global_position.distance_to(player.global_position) / MAX_VELOCITY
+
+	var player_position = player.global_position + (player.velocity * (seconds_to_player * RETURN_PREDICTION_MODIFIER))
+
+	var direction = global_position.direction_to(player_position)
 	
-	var distance = global_position.distance_to(player.global_position)
+	var distance = global_position.distance_to(player_position)
 	
 	var force = MIN_RETURNING_FORCE
 	if distance < RETURNING_FORCE_DISTANCE_SCALING_LIMIT:
@@ -72,6 +78,11 @@ func throw():
 	apply_central_impulse(aim_direction * THROW_FORCE)
 	apply_torque_impulse(THROW_TORQUE)
 
-func _on_area_2d_body_entered(body):
+func _on_pickup_area_body_entered(body):
 	if body == player:
 		set_on_player()
+
+
+func _on_cutting_area_body_entered(body):
+	if body is Plant:
+		body.queue_free()

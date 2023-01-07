@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://csnm82lv4v4ng"]
+
+[ext_resource type="Script" path="res://Game/Boomerang.gd" id="1_e8ipk"]
+[ext_resource type="Texture2D" uid="uid://befyghls4rvp3" path="res://Assets/boomerang.png" id="2_w2srb"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_djxd5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ownve"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wjyx8"]
+radius = 25.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nlg3f"]
+
+[node name="Boomerang" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+inertia = 1.0
+physics_material_override = SubResource("PhysicsMaterial_djxd5")
+freeze = true
+script = ExtResource("1_e8ipk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ownve")
+debug_color = Color(0.796078, 0.415686, 0.219608, 0.419608)
+
+[node name="PickupArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+shape = SubResource("CircleShape2D_wjyx8")
+debug_color = Color(0.145098, 0.615686, 0.537255, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 0)
+rotation = 1.5708
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("2_w2srb")
+
+[node name="CuttingArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CuttingArea"]
+shape = SubResource("CapsuleShape2D_nlg3f")
+
+[connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
+[connection signal="body_entered" from="CuttingArea" to="." method="_on_cutting_area_body_entered"]
