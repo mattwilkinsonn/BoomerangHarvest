@@ -16,9 +16,9 @@ MOVEMENT_SPEED = 150.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_foboy")
 
-[node name="GrowTimer" type="Timer" parent="."]
+[node name="LifecycleTimer" type="Timer" parent="."]
 wait_time = 2.5
 one_shot = true
 autostart = true
 
-[connection signal="timeout" from="GrowTimer" to="." method="_on_grow_timer_timeout"]
+[connection signal="timeout" from="LifecycleTimer" to="." method="_on_lifecycle_timer_timeout"]
