@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
-@export var TIME_ALIVE = 5.0
 @export var MOVEMENT_SPEED = 150.0
 @export var COLOR: Color = Color.BLACK
+@export var LIFE_TIME = 5.0
 @export var DELAYED_DEATH_TIME = 0.001
 
 var player
 
-
 func _ready():
 	player = get_node("../Player")
+	$DeathTimer.start(LIFE_TIME)
 	
 func _draw():
 	draw_circle(Vector2.ZERO, $CollisionShape2D.shape.radius, COLOR)
@@ -23,8 +23,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func delayed_death():
-	queue_free()
-	# $DeathTimer.start(DELAYED_DEATH_TIME)
+	$DeathTimer.start(DELAYED_DEATH_TIME)
 
 func _on_death_timer_timeout():
 	queue_free()

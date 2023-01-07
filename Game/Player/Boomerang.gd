@@ -14,8 +14,13 @@ var state: BoomerangState = BoomerangState.ON_PLAYER:
 	set(new_state):
 		if state == new_state:
 			return
+			
+		var should_monitor_cutting = new_state != BoomerangState.ON_PLAYER
+		$CuttingArea.monitorable = should_monitor_cutting
+		$CuttingArea.monitoring = should_monitor_cutting
 		
 		if new_state == BoomerangState.RETURNING:
+			$ThrowReturnTimer.stop()
 			apply_torque_impulse(RETURN_TORQUE)
 		
 		state = new_state
@@ -29,6 +34,7 @@ var state: BoomerangState = BoomerangState.ON_PLAYER:
 @export var MAX_VELOCITY = 500.0
 @export var RETURN_PREDICTION_MODIFIER = 0.8
 @export var MAX_DISTANCE_FROM_PLAYER = 500.0
+@export var THROW_RETURN_TIMEOUT = .5
 
 var slope = (
 	(MAX_RETURNING_FORCE - MIN_RETURNING_FORCE) / (0 - RETURNING_FORCE_DISTANCE_SCALING_LIMIT)
@@ -47,6 +53,7 @@ func _physics_process(_delta):
 			rotation = 0
 			angular_velocity = 0.0
 			linear_velocity = Vector2.ZERO
+			
 		global_position = player.global_position + Vector2(20, -10)
 
 	if state == BoomerangState.RETURNING:
@@ -95,10 +102,12 @@ func throw():
 	look_at(aim_direction)
 	apply_central_impulse(aim_direction * THROW_FORCE)
 	apply_torque_impulse(THROW_TORQUE)
+	$ThrowReturnTimer.start(THROW_RETURN_TIMEOUT)
+	
 
 
 func _on_pickup_area_body_entered(body):
-	if body == player:
+	if body == player and $ThrowReturnTimer.is_stopped():
 		state = BoomerangState.ON_PLAYER
 
 

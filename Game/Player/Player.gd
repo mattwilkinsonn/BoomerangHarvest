@@ -7,6 +7,13 @@ const BoomerangScene = preload("res://Game/Player/Boomerang.tscn")
 const Plant = preload("res://Game/Plant/Plant.gd")
 const Harvestable = preload("res://Game/Harvestable.gd")
 
+enum MovementDirection {
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT
+}
+
 var boomerang
 
 signal harvested_changed
@@ -18,9 +25,9 @@ var harvested: int = 0:
 		harvested = new_harvested
 
 
-func _draw():
-	var collision_shape = $CollisionShape2D.shape.size
-	draw_rect(Rect2(-1 * collision_shape / 2, collision_shape), Color.BLUE)
+#func _draw():
+#	var collision_shape = $CollisionShape2D.shape.size
+#	draw_rect(Rect2(-1 * collision_shape / 2, collision_shape), Color.BLUE)
 
 
 func _ready():
@@ -34,6 +41,16 @@ func _physics_process(_delta):
 
 	move_and_slide()
 
+
+func _process(delta):
+	if velocity.y < 0:
+		$AnimatedSprite2D.play("up")
+	elif velocity.y > 0:
+		$AnimatedSprite2D.play("down")
+	elif velocity.x > 0:
+		$AnimatedSprite2D.play("right")
+	elif velocity.x < 0:
+		$AnimatedSprite2D.play("left")
 
 func set_movement(input_direction: Vector2):
 	velocity = input_direction * MOVEMENT_SPEED

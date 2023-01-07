@@ -2,16 +2,19 @@ extends Node2D
 
 const PlantScene = preload("res://Game/Plant/Plant.tscn")
 
-@export var PLANTS_TO_SPAWN = 2
+@export var PLANTS_TO_SPAWN = 2.0
+@export var PLANT_SPAWN_TIMER = 2.0
+@export var GAME_TIME: int = 120
 
 signal game_over(score)
 
 var rand_generate = RandomNumberGenerator.new()
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rand_generate.randomize()
+	$PlantSpawnTimer.start(PLANT_SPAWN_TIMER)
+	$GameTimer.start(GAME_TIME)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

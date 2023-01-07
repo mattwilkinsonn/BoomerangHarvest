@@ -1,50 +1,57 @@
 [gd_scene load_steps=7 format=3 uid="uid://n2wgnp0yaxql"]
 
 [ext_resource type="Script" path="res://Game/Player/Boomerang.gd" id="1_e8ipk"]
-[ext_resource type="Texture2D" uid="uid://befyghls4rvp3" path="res://Assets/boomerang.png" id="2_w2srb"]
+[ext_resource type="Texture2D" uid="uid://daqbqxclckc7c" path="res://Assets/new_boomerang.png" id="2_aar37"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gwtn1"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cw7pi"]
 bounce = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k8ukw"]
-radius = 12.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxt3e"]
+radius = 22.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_u2mo0"]
-radius = 25.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_jr6kn"]
+radius = 30.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_17oil"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dy7g2"]
+radius = 22.0
+height = 50.0
 
 [node name="Boomerang" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 40
 inertia = 1.0
-physics_material_override = SubResource("PhysicsMaterial_gwtn1")
+physics_material_override = SubResource("PhysicsMaterial_cw7pi")
 freeze = true
 script = ExtResource("1_e8ipk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_k8ukw")
+shape = SubResource("CircleShape2D_qxt3e")
 debug_color = Color(0.796078, 0.415686, 0.219608, 0.419608)
 
 [node name="PickupArea" type="Area2D" parent="."]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
-shape = SubResource("CircleShape2D_u2mo0")
+shape = SubResource("CircleShape2D_jr6kn")
 debug_color = Color(0.145098, 0.615686, 0.537255, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, 0)
-rotation = 1.5708
-scale = Vector2(0.055, 0.055)
-texture = ExtResource("2_w2srb")
+position = Vector2(3, 0)
+rotation = 3.7001
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_aar37")
 
 [node name="CuttingArea" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 36
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CuttingArea"]
-shape = SubResource("CapsuleShape2D_17oil")
+position = Vector2(0, -1.5)
+shape = SubResource("CapsuleShape2D_dy7g2")
+
+[node name="ThrowReturnTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
 [connection signal="body_entered" from="CuttingArea" to="." method="_on_cutting_area_body_entered"]
+[connection signal="timeout" from="ThrowReturnTimer" to="." method="_on_return_timer_timeout"]
