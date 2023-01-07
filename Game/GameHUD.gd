@@ -10,12 +10,9 @@ func _ready():
 func _process(_delta):
 	pass
 	
-func init_health_bar(health: int, max_health: int):
-	$VBoxContainer/HealthBar.max_value = max_health	
-	$VBoxContainer/HealthBar.value = health
-	
-func set_health_bar(health: int):
-	$VBoxContainer/HealthBar.value = health
+
+func set_time_remaining(seconds: int):
+	$VBoxContainer/TimeRemaining.text = 'Time Remaining: ' + str(seconds)
 
 func set_harvest_indicator(harvested: int):
 	$VBoxContainer/Harvested.text = 'Harvested: ' + str(harvested)

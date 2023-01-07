@@ -15,9 +15,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
-
-
+	var time_left = int($GameTimer.time_left)
+	$GameHUD.set_time_remaining(time_left)
+	
 func _on_plant_spawn_timer_timeout():
 	for i in range(0, PLANTS_TO_SPAWN):
 		var plant = PlantScene.instantiate()
@@ -26,17 +26,12 @@ func _on_plant_spawn_timer_timeout():
 		plant.global_position = Vector2(x, y)
 		add_child(plant)
 
-
-func _on_player_health_changed(health: int):
-	if health <= 0:
-		emit_signal("game_over", $Player.harvested)
-	$GameHUD.set_health_bar(health)
-
-
-
 func _on_player_harvested_changed(harvested: int):
 	$GameHUD.set_harvest_indicator(harvested)
 
-
 func _on_game_hud_init_hud():
-	$GameHUD.init_health_bar($Player.health, $Player.MAX_HEALTH)
+	pass
+
+
+func _on_game_timer_timeout():
+	emit_signal("game_over", $Player.harvested)

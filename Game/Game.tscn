@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7aae30piydre"]
+[gd_scene load_steps=5 format=3 uid="uid://b7aae30piydre"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_q466u"]
 [ext_resource type="PackedScene" uid="uid://dk2cqlryyin3r" path="res://Game/Player.tscn" id="2_1b36i"]
-[ext_resource type="PackedScene" uid="uid://cebb8iab1rafj" path="res://Game/GameHud.tscn" id="3_wgmpb"]
+[ext_resource type="PackedScene" uid="uid://cebb8iab1rafj" path="res://Game/GameHUD.tscn" id="3_wgmpb"]
+[ext_resource type="PackedScene" uid="uid://cb0lhu5fg0jap" path="res://Game/TestRock.tscn" id="4_c7g43"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_q466u")
@@ -16,7 +17,17 @@ autostart = true
 
 [node name="GameHUD" parent="." instance=ExtResource("3_wgmpb")]
 
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+autostart = true
+
+[node name="TestRock" parent="." instance=ExtResource("4_c7g43")]
+position = Vector2(837, 397)
+collision_layer = 8
+collision_mask = 7
+
 [connection signal="harvested_changed" from="Player" to="." method="_on_player_harvested_changed"]
-[connection signal="health_changed" from="Player" to="." method="_on_player_health_changed"]
 [connection signal="timeout" from="PlantSpawnTimer" to="." method="_on_plant_spawn_timer_timeout"]
 [connection signal="init_hud" from="GameHUD" to="." method="_on_game_hud_init_hud"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

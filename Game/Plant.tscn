@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" path="res://Game/Plant.gd" id="1_uhmpv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ggnbr"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_foboy"]
 radius = 20.0
 
 [node name="Plant" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 11
 motion_mode = 1
 safe_margin = 0.001
 script = ExtResource("1_uhmpv")
 MOVEMENT_SPEED = 150.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ggnbr")
+shape = SubResource("CircleShape2D_foboy")
 
 [node name="GrowTimer" type="Timer" parent="."]
 wait_time = 2.5

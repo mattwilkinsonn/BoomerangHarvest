@@ -9,14 +9,6 @@ const Harvestable = preload("res://Game/Harvestable.gd")
 
 var boomerang
 
-signal health_changed
-var health: int = MAX_HEALTH:
-	get:
-		return health
-	set(new_health):
-		health_changed.emit(new_health)
-		health = new_health
-
 signal harvested_changed
 var harvested: int = 0:
 	get:
@@ -26,7 +18,8 @@ var harvested: int = 0:
 		harvested = new_harvested
 
 func _draw():
-	draw_rect(Rect2(Vector2.ZERO, $CollisionShape2D.shape.size), Color.BLUE)
+	var collision_shape = $CollisionShape2D.shape.size
+	draw_rect(Rect2(-1 * collision_shape / 2, collision_shape), Color.BLUE)
 
 func _ready():
 	boomerang = BoomerangScene.instantiate()
@@ -54,11 +47,6 @@ func throw_or_return():
 	elif boomerang.state == Boomerang.BoomerangState.FLYING:
 		boomerang.start_returning()
 
-
-func take_damage(damage: int):
-	health -= damage
-	print("took ", damage, " damage!")
-
 func _on_gameplay_collider_body_entered(body):
 	if body is Plant:
 		collide_with_plant(body)
@@ -70,7 +58,6 @@ func collide_with_plant(plant: Plant):
 		Plant.PlantState.HARVESTABLE:
 			pass
 		Plant.PlantState.ZOMBIE:
-			take_damage(10)
 			pass
 	
 	plant.queue_free()
