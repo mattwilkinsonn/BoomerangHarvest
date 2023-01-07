@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Game/Plant/Enemy/Zombie.gd" id="1_ixnr2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_oqfgw"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_grvp3"]
 radius = 20.0
 
 [node name="Zombie" type="CharacterBody2D"]
@@ -12,7 +12,7 @@ motion_mode = 1
 script = ExtResource("1_ixnr2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_oqfgw")
+shape = SubResource("CircleShape2D_grvp3")
 
 [node name="DeathTimer" type="Timer" parent="."]
 autostart = true

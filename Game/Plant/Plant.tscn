@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Game/Plant/Plant.gd" id="1_ccn6v"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jeex8"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_p45v5"]
 radius = 20.0
 
 [node name="Plant" type="CharacterBody2D"]
@@ -13,7 +13,7 @@ safe_margin = 0.001
 script = ExtResource("1_ccn6v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_jeex8")
+shape = SubResource("CircleShape2D_p45v5")
 
 [node name="LifecycleTimer" type="Timer" parent="."]
 one_shot = true

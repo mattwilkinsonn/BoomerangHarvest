@@ -1,20 +1,22 @@
 extends CharacterBody2D
 
 @export var MOVEMENT_SPEED = 300.0
+@export var SLOWED_MOVEMENT_SPEED = 150.0
 @export var MAX_HEALTH = 100.0
 
 const BoomerangScene = preload("res://Game/Player/Boomerang.tscn")
 const Plant = preload("res://Game/Plant/Plant.gd")
 const Harvestable = preload("res://Game/Harvestable.gd")
-
-enum MovementDirection {
-	UP,
-	DOWN,
-	LEFT,
-	RIGHT
-}
+const Poison = preload("res://Game/Plant/Enemy/Poison.gd")
 
 var boomerang
+
+enum MovementState {
+	NORMAL,
+	SLOWED
+}
+
+var movement_state: MovementState = MovementState.NORMAL
 
 signal harvested_changed
 var harvested: int = 0:
@@ -23,11 +25,6 @@ var harvested: int = 0:
 	set(new_harvested):
 		harvested_changed.emit(new_harvested)
 		harvested = new_harvested
-
-
-#func _draw():
-#	var collision_shape = $CollisionShape2D.shape.size
-#	draw_rect(Rect2(-1 * collision_shape / 2, collision_shape), Color.BLUE)
 
 
 func _ready():
@@ -51,9 +48,23 @@ func _process(delta):
 		$AnimatedSprite2D.play("right")
 	elif velocity.x < 0:
 		$AnimatedSprite2D.play("left")
+	
+	movement_state = MovementState.NORMAL
+	for area in $GameplayCollider.get_overlapping_areas():
+		if area.get_parent() is Poison:
+			movement_state = MovementState.SLOWED
+			break
+
 
 func set_movement(input_direction: Vector2):
-	velocity = input_direction * MOVEMENT_SPEED
+	var movement_speed
+	match movement_state:
+		MovementState.NORMAL:
+			movement_speed = MOVEMENT_SPEED
+		MovementState.SLOWED:
+			movement_speed = SLOWED_MOVEMENT_SPEED
+	
+	velocity = input_direction * movement_speed
 
 
 func _input(event):
@@ -66,6 +77,7 @@ func throw_or_return():
 		boomerang.throw()
 	elif boomerang.state == Boomerang.BoomerangState.FLYING:
 		boomerang.state = Boomerang.BoomerangState.RETURNING
+
 
 func _on_gameplay_collider_body_entered(body):
 	if body is Plant:

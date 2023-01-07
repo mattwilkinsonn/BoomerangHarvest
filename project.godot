@@ -73,6 +73,7 @@ Throw={
 2d_physics/layer_4="Walls/Obstacles"
 2d_physics/layer_5="Harvestable"
 2d_physics/layer_6="Zombie"
+2d_physics/layer_7="PoisonField"
 
 [physics]
 

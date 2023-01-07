@@ -72,6 +72,12 @@ func _process(_delta):
 		and state == BoomerangState.FLYING
 	):
 		state = BoomerangState.RETURNING
+		
+	if state != BoomerangState.ON_PLAYER and $ThrowReturnTimer.is_stopped():
+		for area in $PickupArea.get_overlapping_areas():
+			if area.get_parent() == player:
+				state = BoomerangState.ON_PLAYER
+				break
 
 
 func apply_returning_force():
@@ -103,12 +109,6 @@ func throw():
 	apply_central_impulse(aim_direction * THROW_FORCE)
 	apply_torque_impulse(THROW_TORQUE)
 	$ThrowReturnTimer.start(THROW_RETURN_TIMEOUT)
-	
-
-
-func _on_pickup_area_body_entered(body):
-	if body == player and $ThrowReturnTimer.is_stopped():
-		state = BoomerangState.ON_PLAYER
 
 
 func _on_cutting_area_body_entered(body):

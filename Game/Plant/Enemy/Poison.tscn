@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://frs4tk2mu257"]
+
+[ext_resource type="Script" path="res://Game/Plant/Enemy/Poison.gd" id="1_f5m30"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g023q"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_47wpm"]
+radius = 100.0
+
+[node name="Poison" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 35
+script = ExtResource("1_f5m30")
+POISON_FIELD_COLOR = Color(0.627451, 0.12549, 0.941176, 0.172549)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g023q")
+
+[node name="DeathTimer" type="Timer" parent="."]
+
+[node name="PoisonField" type="Area2D" parent="."]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PoisonField"]
+shape = SubResource("CircleShape2D_47wpm")

@@ -3,16 +3,16 @@
 [ext_resource type="Script" path="res://Game/Player/Boomerang.gd" id="1_e8ipk"]
 [ext_resource type="Texture2D" uid="uid://daqbqxclckc7c" path="res://Assets/new_boomerang.png" id="2_aar37"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cw7pi"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hjv5d"]
 bounce = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qxt3e"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_tbk2v"]
 radius = 22.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jr6kn"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_1givj"]
 radius = 30.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dy7g2"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pyfy5"]
 radius = 22.0
 height = 50.0
 
@@ -20,19 +20,19 @@ height = 50.0
 collision_layer = 2
 collision_mask = 40
 inertia = 1.0
-physics_material_override = SubResource("PhysicsMaterial_cw7pi")
+physics_material_override = SubResource("PhysicsMaterial_hjv5d")
 freeze = true
 script = ExtResource("1_e8ipk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_qxt3e")
+shape = SubResource("CircleShape2D_tbk2v")
 debug_color = Color(0.796078, 0.415686, 0.219608, 0.419608)
 
 [node name="PickupArea" type="Area2D" parent="."]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
-shape = SubResource("CircleShape2D_jr6kn")
+shape = SubResource("CircleShape2D_1givj")
 debug_color = Color(0.145098, 0.615686, 0.537255, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -47,7 +47,7 @@ collision_mask = 36
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CuttingArea"]
 position = Vector2(0, -1.5)
-shape = SubResource("CapsuleShape2D_dy7g2")
+shape = SubResource("CapsuleShape2D_pyfy5")
 
 [node name="ThrowReturnTimer" type="Timer" parent="."]
 one_shot = true

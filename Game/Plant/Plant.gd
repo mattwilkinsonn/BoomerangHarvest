@@ -6,7 +6,7 @@ class_name Plant
 
 const HarvestableScene = preload("res://Game/Harvestable.tscn")
 const ZombieScene = preload("res://Game/Plant/Enemy/Zombie.tscn")
-const PoisonScene = preload("res://Game/Plant/Enemy/Zombie.tscn")
+const PoisonScene = preload("res://Game/Plant/Enemy/Poison.tscn")
 const BombScene = preload("res://Game/Plant/Enemy/Zombie.tscn")
 
 enum PlantState { SAPLING = 0, HARVESTABLE = 1 }
@@ -42,14 +42,13 @@ func _draw():
 
 
 func _on_lifecycle_timer_timeout():
-	
 	match state:
 		PlantState.SAPLING:
 			state = PlantState.HARVESTABLE
 			$LifecycleTimer.start(HARVESTABLE_TIME)
 			queue_redraw()
 		PlantState.HARVESTABLE:
-			var enemy = ZombieScene.instantiate()
+			var enemy = scene_for_type[type].instantiate()
 			enemy.global_position = global_position
 			get_parent().add_child(enemy)
 			queue_free()

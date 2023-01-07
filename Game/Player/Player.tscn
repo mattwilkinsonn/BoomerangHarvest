@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://cvr11i35g5tlx" path="res://Assets/witch_back.png" id="5_as2fo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1et4e"]
-size = Vector2(25, 41)
+size = Vector2(40, 64)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lteev"]
-radius = 17.0
-height = 55.0
+radius = 20.0
+height = 64.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_in2ea"]
 atlas = ExtResource("2_g2faq")
@@ -266,17 +266,18 @@ motion_mode = 1
 script = ExtResource("1_22ng5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -0.5)
+position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_1et4e")
 
 [node name="GameplayCollider" type="Area2D" parent="."]
-collision_mask = 22
+collision_mask = 86
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayCollider"]
+position = Vector2(0, 10)
 shape = SubResource("CapsuleShape2D_lteev")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(1, -2)
 scale = Vector2(0.3, 0.3)
 frames = SubResource("SpriteFrames_5s32l")
 animation = &"down"
