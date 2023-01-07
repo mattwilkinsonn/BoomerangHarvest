@@ -21,6 +21,7 @@ var state: BoomerangState = BoomerangState.ON_PLAYER
 @export var RETURNING_FORCE_DISTANCE_SCALING_LIMIT = 1000
 @export var MAX_VELOCITY = 500.0
 @export var RETURN_PREDICTION_MODIFIER = 0.8
+@export var MAX_DISTANCE_FROM_PLAYER = 500.0
 
 var slope = (MAX_RETURNING_FORCE - MIN_RETURNING_FORCE) / (0 - RETURNING_FORCE_DISTANCE_SCALING_LIMIT)
 # Called when the node enters the scene tree for the first time.
@@ -28,14 +29,16 @@ func _ready():
 	player = get_node("../Player")
 
 func set_on_player():
-	freeze = true
-	rotation = 0
-	angular_velocity = 0.0
-	linear_velocity = Vector2.ZERO
+	
 	state = BoomerangState.ON_PLAYER
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if state == BoomerangState.ON_PLAYER:
+		if not freeze:
+			freeze = true
+			rotation = 0
+			angular_velocity = 0.0
+			linear_velocity = Vector2.ZERO
 		global_position = player.global_position + Vector2(20, -10)
 		
 	if state == BoomerangState.RETURNING:
@@ -46,8 +49,9 @@ func _integrate_forces(physics_state: PhysicsDirectBodyState2D):
 		physics_state.linear_velocity = physics_state.linear_velocity.normalized() * MAX_VELOCITY
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _process(_delta):
+	if global_position.distance_to(player.global_position) > MAX_DISTANCE_FROM_PLAYER and state == BoomerangState.FLYING:
+		start_returning()
 
 
 func apply_returning_force():
@@ -85,4 +89,4 @@ func _on_pickup_area_body_entered(body):
 
 func _on_cutting_area_body_entered(body):
 	if body is Plant:
-		body.queue_free()
+		body.cut()

@@ -1,11 +1,14 @@
 extends CharacterBody2D
+class_name Plant
+
+const HarvestableScene = preload("res://Game/Harvestable.tscn")
 
 @export var MOVEMENT_SPEED = 300.0
 
 enum PlantState {
-	SAPLING = 1,
-	HARVESTABLE = 2,
-	ZOMBIE = 3
+	SAPLING = 0,
+	HARVESTABLE = 1,
+	ZOMBIE = 2
 }
 
 var state: PlantState = PlantState.SAPLING
@@ -15,7 +18,7 @@ var player
 func _ready():
 	player = get_node("../Player")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if state != PlantState.ZOMBIE:
 		return
 		
@@ -24,13 +27,6 @@ func _physics_process(delta):
 	set_movement(direction)
 	
 	move_and_slide()
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		
-		var colliding_body = collision.get_collider()
-		if colliding_body == player:
-			player.take_damage(10)
-			queue_free()
 			
 
 func set_movement(direction: Vector2):
@@ -53,3 +49,13 @@ func _on_grow_timer_timeout():
 	queue_redraw()	
 	if state != PlantState.ZOMBIE:
 		$GrowTimer.start()
+
+
+func cut():
+	if state == PlantState.HARVESTABLE:
+		var harvestable = HarvestableScene.instantiate()
+		harvestable.global_position = global_position
+		get_parent().add_child.call_deferred(harvestable)
+		print("drop harvest!")
+	
+	queue_free()

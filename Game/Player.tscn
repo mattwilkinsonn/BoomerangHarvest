@@ -1,13 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk2cqlryyin3r"]
+[gd_scene load_steps=4 format=3 uid="uid://dk2cqlryyin3r"]
 
 [ext_resource type="Script" path="res://Game/Player.gd" id="1_dusa8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1et4e"]
 size = Vector2(20, 40)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lteev"]
+radius = 15.0
+height = 55.0
+
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 6
+collision_mask = 8
+motion_mode = 1
 script = ExtResource("1_dusa8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1et4e")
+
+[node name="GameplayCollider" type="Area2D" parent="."]
+collision_mask = 22
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayCollider"]
+shape = SubResource("CapsuleShape2D_lteev")
+
+[connection signal="area_entered" from="GameplayCollider" to="." method="_on_gameplay_collider_area_entered"]
+[connection signal="body_entered" from="GameplayCollider" to="." method="_on_gameplay_collider_body_entered"]

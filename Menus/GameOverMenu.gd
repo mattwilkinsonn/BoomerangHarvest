@@ -1,6 +1,12 @@
 extends CanvasLayer
 
-signal play
+signal play_again
+
+var score: int = 0
+
+func init(player_score: int):
+	score = player_score
+	$VBoxContainer/Score.text = 'Score: ' + str(score)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,9 +14,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
 	pass
 
 
-func _on_play_button_pressed():
-	emit_signal("play")
+func _on_play_again_pressed():
+	emit_signal("play_again")
