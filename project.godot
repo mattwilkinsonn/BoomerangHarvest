@@ -12,12 +12,12 @@ _global_script_classes=[{
 "base": "RigidBody2D",
 "class": &"Boomerang",
 "language": &"GDScript",
-"path": "res://Game/Boomerang.gd"
+"path": "res://Game/Player/Boomerang.gd"
 }, {
 "base": "CharacterBody2D",
 "class": &"Plant",
 "language": &"GDScript",
-"path": "res://Game/Plant.gd"
+"path": "res://Game/Plant/Plant.gd"
 }]
 _global_script_class_icons={
 "Boomerang": "",
@@ -72,6 +72,7 @@ Throw={
 2d_physics/layer_3="Plant"
 2d_physics/layer_4="Walls/Obstacles"
 2d_physics/layer_5="Harvestable"
+2d_physics/layer_6="Zombie"
 
 [physics]
 

@@ -1,8 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkwbd33t4mel4"]
+[gd_scene load_steps=3 format=3 uid="uid://3ctgn4tb4hr6"]
 
-[ext_resource type="Script" path="res://Game/Plant.gd" id="1_uhmpv"]
+[ext_resource type="Script" path="res://Game/Plant/Plant.gd" id="1_ccn6v"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_foboy"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qo1iw"]
 radius = 20.0
 
 [node name="Plant" type="CharacterBody2D"]
@@ -10,11 +10,10 @@ collision_layer = 4
 collision_mask = 11
 motion_mode = 1
 safe_margin = 0.001
-script = ExtResource("1_uhmpv")
-MOVEMENT_SPEED = 150.0
+script = ExtResource("1_ccn6v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_foboy")
+shape = SubResource("CircleShape2D_qo1iw")
 
 [node name="LifecycleTimer" type="Timer" parent="."]
 wait_time = 2.5

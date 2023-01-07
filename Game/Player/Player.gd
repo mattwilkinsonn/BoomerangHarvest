@@ -3,8 +3,8 @@ extends CharacterBody2D
 @export var MOVEMENT_SPEED = 300.0
 @export var MAX_HEALTH = 100.0
 
-const BoomerangScene = preload("res://Game/Boomerang.tscn")
-const Plant = preload("res://Game/Plant.gd")
+const BoomerangScene = preload("res://Game/Player/Boomerang.tscn")
+const Plant = preload("res://Game/Plant/Plant.gd")
 const Harvestable = preload("res://Game/Harvestable.gd")
 
 var boomerang
@@ -48,8 +48,7 @@ func throw_or_return():
 	if boomerang.state == Boomerang.BoomerangState.ON_PLAYER:
 		boomerang.throw()
 	elif boomerang.state == Boomerang.BoomerangState.FLYING:
-		boomerang.start_returning()
-
+		boomerang.state = Boomerang.BoomerangState.RETURNING
 
 func _on_gameplay_collider_body_entered(body):
 	if body is Plant:
@@ -61,8 +60,6 @@ func collide_with_plant(plant: Plant):
 		Plant.PlantState.SAPLING:
 			pass
 		Plant.PlantState.HARVESTABLE:
-			pass
-		Plant.PlantState.ENEMY:
 			pass
 
 	plant.queue_free()

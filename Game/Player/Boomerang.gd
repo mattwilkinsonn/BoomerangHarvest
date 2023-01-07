@@ -1,13 +1,24 @@
 extends RigidBody2D
 class_name Boomerang
 
-const Plant = preload("res://Game/Plant.gd")
+const Plant = preload("res://Game/Plant/Plant.gd")
+const Zombie = preload("res://Game/Plant/Enemy/Zombie.gd")
 
 enum BoomerangState { ON_PLAYER, FLYING, RETURNING }
 
 var player
 
-var state: BoomerangState = BoomerangState.ON_PLAYER
+var state: BoomerangState = BoomerangState.ON_PLAYER:
+	get:
+		return state
+	set(new_state):
+		if state == new_state:
+			return
+		
+		if new_state == BoomerangState.RETURNING:
+			apply_torque_impulse(RETURN_TORQUE)
+		
+		state = new_state
 
 @export var THROW_FORCE = 600.0
 @export var THROW_TORQUE = 20.0
@@ -27,10 +38,6 @@ var slope = (
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_node("../Player")
-
-
-func set_on_player():
-	state = BoomerangState.ON_PLAYER
 
 
 func _physics_process(_delta):
@@ -57,7 +64,7 @@ func _process(_delta):
 		global_position.distance_to(player.global_position) > MAX_DISTANCE_FROM_PLAYER
 		and state == BoomerangState.FLYING
 	):
-		start_returning()
+		state = BoomerangState.RETURNING
 
 
 func apply_returning_force():
@@ -76,11 +83,7 @@ func apply_returning_force():
 	if distance < RETURNING_FORCE_DISTANCE_SCALING_LIMIT:
 		force = (slope * distance) + MAX_RETURNING_FORCE
 	apply_force(direction * force)
-
-
-func start_returning():
-	state = BoomerangState.RETURNING
-	apply_torque_impulse(RETURN_TORQUE)
+	
 
 
 func throw():
@@ -96,9 +99,13 @@ func throw():
 
 func _on_pickup_area_body_entered(body):
 	if body == player:
-		set_on_player()
+		state = BoomerangState.ON_PLAYER
 
 
 func _on_cutting_area_body_entered(body):
 	if body is Plant:
 		body.cut()
+	
+	if body is Zombie:
+		body.queue_free()
+		state = BoomerangState.RETURNING

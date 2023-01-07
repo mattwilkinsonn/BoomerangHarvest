@@ -1,36 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://csnm82lv4v4ng"]
+[gd_scene load_steps=7 format=3 uid="uid://n2wgnp0yaxql"]
 
-[ext_resource type="Script" path="res://Game/Boomerang.gd" id="1_e8ipk"]
+[ext_resource type="Script" path="res://Game/Player/Boomerang.gd" id="1_e8ipk"]
 [ext_resource type="Texture2D" uid="uid://befyghls4rvp3" path="res://Assets/boomerang.png" id="2_w2srb"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8hwxh"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gwtn1"]
 bounce = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8rssn"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_k8ukw"]
 radius = 12.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_oohms"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_u2mo0"]
 radius = 25.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d053g"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_17oil"]
 
 [node name="Boomerang" type="RigidBody2D"]
 collision_layer = 2
-collision_mask = 8
+collision_mask = 40
 inertia = 1.0
-physics_material_override = SubResource("PhysicsMaterial_8hwxh")
+physics_material_override = SubResource("PhysicsMaterial_gwtn1")
 freeze = true
 script = ExtResource("1_e8ipk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_8rssn")
+shape = SubResource("CircleShape2D_k8ukw")
 debug_color = Color(0.796078, 0.415686, 0.219608, 0.419608)
 
 [node name="PickupArea" type="Area2D" parent="."]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
-shape = SubResource("CircleShape2D_oohms")
+shape = SubResource("CircleShape2D_u2mo0")
 debug_color = Color(0.145098, 0.615686, 0.537255, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -41,10 +41,10 @@ texture = ExtResource("2_w2srb")
 
 [node name="CuttingArea" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 36
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CuttingArea"]
-shape = SubResource("CapsuleShape2D_d053g")
+shape = SubResource("CapsuleShape2D_17oil")
 
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
 [connection signal="body_entered" from="CuttingArea" to="." method="_on_cutting_area_body_entered"]
