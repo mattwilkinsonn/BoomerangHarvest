@@ -23,6 +23,8 @@ func _process(_delta):
 func _on_plant_spawn_timer_timeout():
 	for i in range(0, PLANTS_TO_SPAWN):
 		var plant = PlantScene.instantiate()
+		var plant_type = rand_generate.randi_range(0, 4) as Plant.PlantType
+		plant.init(plant_type)
 		var x = rand_generate.randi_range(10, 1970)
 		var y = rand_generate.randi_range(10, 1070)
 		plant.global_position = Vector2(x, y)

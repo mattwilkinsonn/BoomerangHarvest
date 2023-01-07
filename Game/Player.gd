@@ -62,7 +62,7 @@ func collide_with_plant(plant: Plant):
 			pass
 		Plant.PlantState.HARVESTABLE:
 			pass
-		Plant.PlantState.ZOMBIE:
+		Plant.PlantState.ENEMY:
 			pass
 
 	plant.queue_free()

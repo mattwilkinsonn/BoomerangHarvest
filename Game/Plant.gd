@@ -5,22 +5,51 @@ const HarvestableScene = preload("res://Game/Harvestable.tscn")
 
 @export var MOVEMENT_SPEED = 300.0
 
-enum PlantState { SAPLING = 0, HARVESTABLE = 1, ZOMBIE = 2 }
+enum PlantState { SAPLING = 0, HARVESTABLE = 1, ENEMY = 2 }
 
 enum PlantType { ZOMBIE = 0, POISON = 1, STICKY = 2, BOMB = 3, CHAOS = 4 }
 
-var PlantTypeToColor = {
-	PlantType.ZOMBIE: Color.BLACK,
-	PlantType.POSION: Color.PURPLE,
-	PlantType.STICKY: Color.ORANGE,
-	PlantType.BOMB: Color.RED,
-	PlantType.Chaos: Color.PINK
+enum MovementType { STATIONARY = 0, CHASE = 1 }
+
+var PlantTypeConfig = {
+	PlantType.ZOMBIE:
+	{
+		"lifecycle":
+		{PlantState.SAPLING: 5, PlantState.HARVESTABLE: 5, PlantState.ENEMY: 5},
+		"movement": MovementType.CHASE,
+		"color": Color.BLACK
+	},
+	PlantType.POISON:
+	{
+		"lifecycle":
+		{PlantState.SAPLING: 5, PlantState.HARVESTABLE: 5, PlantState.ENEMY: 5},
+		"movement": MovementType.STATIONARY,
+		"color": Color.PURPLE
+	},
+	PlantType.BOMB:
+	{
+		"lifecycle":
+		{PlantState.SAPLING: 5, PlantState.HARVESTABLE: 5, PlantState.ENEMY: 5},
+		"movement": MovementType.STATIONARY,
+		"color": Color.RED
+	},
 }
 
 var state: PlantState = PlantState.SAPLING
-var type: PlantType
+var type_config: Dictionary
+var type: PlantType = PlantType.ZOMBIE:
+	get:
+		return type
+	set(value):
+		type = value
+		type_config = PlantTypeConfig[type]
 
 var player
+
+
+func init(plant_type: PlantType):
+	type = plant_type
+	state = PlantState.SAPLING
 
 
 func _ready():
@@ -28,7 +57,10 @@ func _ready():
 
 
 func _physics_process(_delta):
-	if state != PlantState.ZOMBIE:
+	if (
+		type_config["movement"] != MovementType.CHASE
+		or state != PlantState.ENEMY
+	):
 		return
 
 	look_at(player.global_position)
@@ -49,17 +81,19 @@ func _draw():
 			color = Color.YELLOW
 		PlantState.HARVESTABLE:
 			color = Color.GREEN
-		PlantState.ZOMBIE:
-			color = Color.BLACK
+		PlantState.ENEMY:
+			color = type_config["color"]
 	draw_circle(Vector2.ZERO, $CollisionShape2D.shape.radius, color)
 
 
 func _on_lifecycle_timer_timeout():
-	if state != PlantState.ZOMBIE:
+	if state != PlantState.ENEMY:
 		state = (state + 1) as PlantState
+		$LifecycleTimer.start(type_config["lifecycle"][state])
 		queue_redraw()
-		$GrowTimer.start()
 		return
+
+	queue_free()
 
 
 func cut():
@@ -67,6 +101,5 @@ func cut():
 		var harvestable = HarvestableScene.instantiate()
 		harvestable.global_position = global_position
 		get_parent().add_child.call_deferred(harvestable)
-		print("drop harvest!")
 
 	queue_free()
