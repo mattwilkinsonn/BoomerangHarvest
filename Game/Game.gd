@@ -28,9 +28,9 @@ func _on_plant_spawn_timer_timeout():
 		var plant = PlantScene.instantiate()
 		var plant_type = rand_generate.randi_range(0, 2) as Plant.PlantType
 		plant.init(plant_type)
-		var x = rand_generate.randi_range(10, 1970)
-		var y = rand_generate.randi_range(10, 1070)
-		plant.global_position = Vector2(x, y)
+		var spawn_number = rand_generate.randi_range(1, 66)
+		var spawn_point = get_node("Spawns/SpawnPoint" + str(spawn_number))
+		plant.global_position = spawn_point.global_position
 		add_child(plant)
 
 

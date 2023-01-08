@@ -105,10 +105,10 @@ func apply_returning_force():
 
 func throw():
 	state = BoomerangState.FLYING
-	freeze = false
 	var mouse_position = get_global_mouse_position()
-	var aim_direction = global_position.direction_to(mouse_position)
-
+	var aim_direction = player.global_position.direction_to(mouse_position)
+	global_position = player.global_position
+	freeze = false
 	look_at(aim_direction)
 	apply_central_impulse(aim_direction * THROW_FORCE)
 	apply_torque_impulse(THROW_TORQUE)

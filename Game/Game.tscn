@@ -23,6 +23,206 @@ one_shot = true
 [node name="Level_01" parent="." instance=ExtResource("5_odpxs")]
 metadata/_edit_lock_ = true
 
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="SpawnPoint1" type="Node2D" parent="Spawns"]
+position = Vector2(375, 602)
+
+[node name="SpawnPoint2" type="Node2D" parent="Spawns"]
+position = Vector2(429, 758)
+
+[node name="SpawnPoint3" type="Node2D" parent="Spawns"]
+position = Vector2(567, 852)
+
+[node name="SpawnPoint4" type="Node2D" parent="Spawns"]
+position = Vector2(794, 598)
+
+[node name="SpawnPoint5" type="Node2D" parent="Spawns"]
+position = Vector2(794, 598)
+
+[node name="SpawnPoint6" type="Node2D" parent="Spawns"]
+position = Vector2(829, 265)
+
+[node name="SpawnPoint7" type="Node2D" parent="Spawns"]
+position = Vector2(1021, 215)
+
+[node name="SpawnPoint8" type="Node2D" parent="Spawns"]
+position = Vector2(1029, 543)
+
+[node name="SpawnPoint9" type="Node2D" parent="Spawns"]
+position = Vector2(1286, 405)
+
+[node name="SpawnPoint10" type="Node2D" parent="Spawns"]
+position = Vector2(1348, 247)
+
+[node name="SpawnPoint11" type="Node2D" parent="Spawns"]
+position = Vector2(1530, 324)
+
+[node name="SpawnPoint12" type="Node2D" parent="Spawns"]
+position = Vector2(1658, 472)
+
+[node name="SpawnPoint13" type="Node2D" parent="Spawns"]
+position = Vector2(1658, 472)
+
+[node name="SpawnPoint14" type="Node2D" parent="Spawns"]
+position = Vector2(1532, 561)
+
+[node name="SpawnPoint15" type="Node2D" parent="Spawns"]
+position = Vector2(1500, 773)
+
+[node name="SpawnPoint16" type="Node2D" parent="Spawns"]
+position = Vector2(1685, 718)
+
+[node name="SpawnPoint17" type="Node2D" parent="Spawns"]
+position = Vector2(1542, 895)
+
+[node name="SpawnPoint18" type="Node2D" parent="Spawns"]
+position = Vector2(1192, 932)
+
+[node name="SpawnPoint19" type="Node2D" parent="Spawns"]
+position = Vector2(1145, 759)
+
+[node name="SpawnPoint20" type="Node2D" parent="Spawns"]
+position = Vector2(921, 984)
+
+[node name="SpawnPoint21" type="Node2D" parent="Spawns"]
+position = Vector2(921, 984)
+
+[node name="SpawnPoint22" type="Node2D" parent="Spawns"]
+position = Vector2(689, 954)
+
+[node name="SpawnPoint23" type="Node2D" parent="Spawns"]
+position = Vector2(968, 682)
+
+[node name="SpawnPoint24" type="Node2D" parent="Spawns"]
+position = Vector2(1484, 152)
+
+[node name="SpawnPoint25" type="Node2D" parent="Spawns"]
+position = Vector2(907, 125)
+
+[node name="SpawnPoint26" type="Node2D" parent="Spawns"]
+position = Vector2(159, 603)
+
+[node name="SpawnPoint27" type="Node2D" parent="Spawns"]
+position = Vector2(603, 487)
+
+[node name="SpawnPoint28" type="Node2D" parent="Spawns"]
+position = Vector2(119, 490)
+
+[node name="SpawnPoint29" type="Node2D" parent="Spawns"]
+position = Vector2(292, 635)
+
+[node name="SpawnPoint30" type="Node2D" parent="Spawns"]
+position = Vector2(845, 563)
+
+[node name="SpawnPoint31" type="Node2D" parent="Spawns"]
+position = Vector2(1211, 523)
+
+[node name="SpawnPoint32" type="Node2D" parent="Spawns"]
+position = Vector2(1300, 631)
+
+[node name="SpawnPoint33" type="Node2D" parent="Spawns"]
+position = Vector2(1400, 522)
+
+[node name="SpawnPoint34" type="Node2D" parent="Spawns"]
+position = Vector2(1421, 660)
+
+[node name="SpawnPoint35" type="Node2D" parent="Spawns"]
+position = Vector2(1340, 481)
+
+[node name="SpawnPoint36" type="Node2D" parent="Spawns"]
+position = Vector2(1053, 439)
+
+[node name="SpawnPoint37" type="Node2D" parent="Spawns"]
+position = Vector2(917, 460)
+
+[node name="SpawnPoint38" type="Node2D" parent="Spawns"]
+position = Vector2(1045, 696)
+
+[node name="SpawnPoint39" type="Node2D" parent="Spawns"]
+position = Vector2(1183, 698)
+
+[node name="SpawnPoint40" type="Node2D" parent="Spawns"]
+position = Vector2(1175, 615)
+
+[node name="SpawnPoint41" type="Node2D" parent="Spawns"]
+position = Vector2(1124, 543)
+
+[node name="SpawnPoint42" type="Node2D" parent="Spawns"]
+position = Vector2(1200, 443)
+
+[node name="SpawnPoint43" type="Node2D" parent="Spawns"]
+position = Vector2(1377, 779)
+
+[node name="SpawnPoint44" type="Node2D" parent="Spawns"]
+position = Vector2(1162, 851)
+
+[node name="SpawnPoint45" type="Node2D" parent="Spawns"]
+position = Vector2(1011, 859)
+
+[node name="SpawnPoint46" type="Node2D" parent="Spawns"]
+position = Vector2(922, 821)
+
+[node name="SpawnPoint47" type="Node2D" parent="Spawns"]
+position = Vector2(860, 704)
+
+[node name="SpawnPoint48" type="Node2D" parent="Spawns"]
+position = Vector2(860, 704)
+
+[node name="SpawnPoint49" type="Node2D" parent="Spawns"]
+position = Vector2(822, 464)
+
+[node name="SpawnPoint50" type="Node2D" parent="Spawns"]
+position = Vector2(911, 379)
+
+[node name="SpawnPoint51" type="Node2D" parent="Spawns"]
+position = Vector2(1047, 339)
+
+[node name="SpawnPoint52" type="Node2D" parent="Spawns"]
+position = Vector2(1317, 339)
+
+[node name="SpawnPoint53" type="Node2D" parent="Spawns"]
+position = Vector2(1317, 339)
+
+[node name="SpawnPoint54" type="Node2D" parent="Spawns"]
+position = Vector2(1419, 407)
+
+[node name="SpawnPoint55" type="Node2D" parent="Spawns"]
+position = Vector2(1489, 630)
+
+[node name="SpawnPoint56" type="Node2D" parent="Spawns"]
+position = Vector2(1415, 870)
+
+[node name="SpawnPoint57" type="Node2D" parent="Spawns"]
+position = Vector2(1077, 874)
+
+[node name="SpawnPoint58" type="Node2D" parent="Spawns"]
+position = Vector2(665, 623)
+
+[node name="SpawnPoint59" type="Node2D" parent="Spawns"]
+position = Vector2(754, 329)
+
+[node name="SpawnPoint60" type="Node2D" parent="Spawns"]
+position = Vector2(1175, 216)
+
+[node name="SpawnPoint61" type="Node2D" parent="Spawns"]
+position = Vector2(1318, 120)
+
+[node name="SpawnPoint62" type="Node2D" parent="Spawns"]
+position = Vector2(1680, 265)
+
+[node name="SpawnPoint63" type="Node2D" parent="Spawns"]
+position = Vector2(1078, 1037)
+
+[node name="SpawnPoint64" type="Node2D" parent="Spawns"]
+position = Vector2(474, 871)
+
+[node name="SpawnPoint65" type="Node2D" parent="Spawns"]
+position = Vector2(933, 595)
+
+[node name="SpawnPoint66" type="Node2D" parent="Spawns"]
+position = Vector2(1007, 606)
+
 [connection signal="harvested_changed" from="Player" to="." method="_on_player_harvested_changed"]
 [connection signal="timeout" from="PlantSpawnTimer" to="." method="_on_plant_spawn_timer_timeout"]
 [connection signal="init_hud" from="GameHUD" to="." method="_on_game_hud_init_hud"]

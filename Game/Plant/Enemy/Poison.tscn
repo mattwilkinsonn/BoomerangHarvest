@@ -6,7 +6,7 @@
 radius = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_252y2"]
-radius = 100.0
+radius = 200.0
 
 [node name="Poison" type="StaticBody2D"]
 collision_layer = 12
