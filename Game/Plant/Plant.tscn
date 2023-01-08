@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://3ctgn4tb4hr6"]
+[gd_scene load_steps=37 format=3 uid="uid://3ctgn4tb4hr6"]
 
 [ext_resource type="Script" path="res://Game/Plant/Plant.gd" id="1_ccn6v"]
 [ext_resource type="AudioStream" uid="uid://qqvr1tg7pr75" path="res://Assets/Sfx/plant_grow.wav" id="2_nwprh"]
@@ -141,14 +141,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_7r6jq"]
-resource_name = "sapling"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_whgv6"]
-_data = {
-"sapling": SubResource("Animation_7r6jq")
-}
-
 [node name="Plant" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 329
@@ -166,16 +158,11 @@ one_shot = true
 
 [node name="GrowPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_nwprh")
-volume_db = -3.0
+volume_db = -8.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 frames = SubResource("SpriteFrames_qw45p")
 animation = &"harvestable"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_whgv6")
-}
 
 [connection signal="timeout" from="LifecycleTimer" to="." method="_on_lifecycle_timer_timeout"]

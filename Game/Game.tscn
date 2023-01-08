@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://j3oj5ejfh41c"]
+[gd_scene load_steps=6 format=3 uid="uid://j3oj5ejfh41c"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_q466u"]
 [ext_resource type="PackedScene" uid="uid://bvgggvsbtlvxw" path="res://Game/Player/Player.tscn" id="2_1b36i"]
 [ext_resource type="PackedScene" uid="uid://cebb8iab1rafj" path="res://Game/GameHUD.tscn" id="3_wgmpb"]
+[ext_resource type="AudioStream" uid="uid://dory16axklykp" path="res://Assets/Music/wip_gameplay_music_trimmed.mp3" id="5_54ppc"]
 [ext_resource type="PackedScene" uid="uid://bs4ghfkr4i0wn" path="res://Game/Levels/level_test.tscn" id="5_odpxs"]
 
 [node name="Game" type="Node2D"]
@@ -250,6 +251,11 @@ position = Vector2(688, 766)
 position = Vector2(794, 983)
 
 [node name="TotalTimer" type="Timer" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_54ppc")
+volume_db = -18.0
+autoplay = true
 
 [connection signal="harvested_changed" from="Player" to="." method="_on_player_harvested_changed"]
 [connection signal="timeout" from="PlantSpawnTimer" to="." method="_on_plant_spawn_timer_timeout"]

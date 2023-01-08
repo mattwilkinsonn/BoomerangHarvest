@@ -121,6 +121,7 @@ func _on_gameplay_collider_area_entered(area: Area2D):
 	if area is Harvestable:
 		harvested += 1
 		area.queue_free()
+		$LootPlayer.play()
 
 func bump(direction: Vector2, type: BumpType):
 	if not $BumpTimer.is_stopped():
