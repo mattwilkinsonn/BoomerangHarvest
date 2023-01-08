@@ -44,7 +44,7 @@ position = Vector2(794, 598)
 position = Vector2(829, 265)
 
 [node name="SpawnPoint7" type="Node2D" parent="Spawns"]
-position = Vector2(1021, 215)
+position = Vector2(1001, 219)
 
 [node name="SpawnPoint8" type="Node2D" parent="Spawns"]
 position = Vector2(1029, 543)
@@ -86,7 +86,7 @@ position = Vector2(1145, 759)
 position = Vector2(921, 984)
 
 [node name="SpawnPoint21" type="Node2D" parent="Spawns"]
-position = Vector2(921, 984)
+position = Vector2(1361, 964)
 
 [node name="SpawnPoint22" type="Node2D" parent="Spawns"]
 position = Vector2(689, 954)
@@ -95,7 +95,7 @@ position = Vector2(689, 954)
 position = Vector2(968, 682)
 
 [node name="SpawnPoint24" type="Node2D" parent="Spawns"]
-position = Vector2(1484, 152)
+position = Vector2(1505, 169)
 
 [node name="SpawnPoint25" type="Node2D" parent="Spawns"]
 position = Vector2(907, 125)
@@ -107,7 +107,7 @@ position = Vector2(159, 603)
 position = Vector2(603, 487)
 
 [node name="SpawnPoint67" type="Node2D" parent="Spawns"]
-position = Vector2(551, 468)
+position = Vector2(526, 467)
 
 [node name="SpawnPoint28" type="Node2D" parent="Spawns"]
 position = Vector2(119, 490)
@@ -116,7 +116,7 @@ position = Vector2(119, 490)
 position = Vector2(171, 485)
 
 [node name="SpawnPoint29" type="Node2D" parent="Spawns"]
-position = Vector2(292, 635)
+position = Vector2(308, 701)
 
 [node name="SpawnPoint30" type="Node2D" parent="Spawns"]
 position = Vector2(845, 563)
@@ -212,10 +212,10 @@ position = Vector2(754, 329)
 position = Vector2(1175, 216)
 
 [node name="SpawnPoint61" type="Node2D" parent="Spawns"]
-position = Vector2(1318, 120)
+position = Vector2(1324, 133)
 
 [node name="SpawnPoint62" type="Node2D" parent="Spawns"]
-position = Vector2(1680, 265)
+position = Vector2(1671, 272)
 
 [node name="SpawnPoint63" type="Node2D" parent="Spawns"]
 position = Vector2(1078, 1037)

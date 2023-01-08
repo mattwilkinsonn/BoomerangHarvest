@@ -2,8 +2,9 @@ extends Node2D
 
 const PlantScene = preload("res://Game/Plant/Plant.tscn")
 
-@export var PLANTS_TO_SPAWN = 2.0
-@export var PLANT_SPAWN_TIMER = 2.0
+@export var ZOMBIE_PERCENT = 50
+@export var POISON_PERCENT = 25
+var zombie_poison = ZOMBIE_PERCENT + POISON_PERCENT
 
 var game_stages = {
 	GameStage.STAGE1: {"time": 30, "spawn_time": 2, "spawn_amount": 2, "sapling_time": 3, "harvestable_time": 5},
@@ -41,7 +42,6 @@ var rand_generate = RandomNumberGenerator.new()
 func _ready():
 	rand_generate.randomize()
 	game_stage = GameStage.STAGE1
-	$PlantSpawnTimer.start(PLANT_SPAWN_TIMER)
 	$GameTimer.start(game_stages[game_stage].time)
 	$TotalTimer.start(total_time())
 
@@ -51,14 +51,32 @@ func _process(_delta):
 	$GameHUD.set_time_remaining(int($TotalTimer.time_left))
 
 
+func generate_plant_type() -> int:
+	var percent = rand_generate.randi_range(0, 100)
+	if percent < ZOMBIE_PERCENT:
+		return Plant.PlantType.ZOMBIE
+	
+	if percent < zombie_poison:
+		return Plant.PlantType.POISON
+	
+	return Plant.PlantType.BOMB
+
+var spawn_points: Array = []
+
+func get_spawn_point():
+	if spawn_points.is_empty():
+		spawn_points = $Spawns.get_children()
+		spawn_points.shuffle()
+	
+	return spawn_points.pop_front()
+
 func spawn_plants():
 	var config = game_stages[game_stage]
 	for i in range(0, config.spawn_amount):
 		var plant = PlantScene.instantiate()
-		var plant_type = rand_generate.randi_range(0, 2) as Plant.PlantType
+		var plant_type = generate_plant_type() as Plant.PlantType
 		plant.init(plant_type, config.sapling_time, config.harvestable_time)
-		var spawn_number = rand_generate.randi_range(1, 75)
-		var spawn_point = get_node("Spawns/SpawnPoint" + str(spawn_number))
+		var spawn_point = get_spawn_point()
 		plant.global_position = spawn_point.global_position
 		add_child(plant)
 
