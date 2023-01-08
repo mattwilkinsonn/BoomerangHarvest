@@ -7,16 +7,16 @@
 [ext_resource type="AudioStream" uid="uid://cpvn4tplrshyo" path="res://Assets/Sfx/Player/boo_fly.wav" id="5_vi664"]
 [ext_resource type="AudioStream" uid="uid://bwq0cyx2n1cvb" path="res://Assets/Sfx/Player/boo_ricochet.wav" id="6_r4onr"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dnplt"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_eojuc"]
 bounce = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ajrty"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qjnyl"]
 radius = 22.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cyfj5"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_m2ntc"]
 radius = 30.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n11d0"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pabi8"]
 radius = 22.0
 height = 50.0
 
@@ -24,7 +24,7 @@ height = 50.0
 collision_layer = 2
 collision_mask = 40
 inertia = 1.0
-physics_material_override = SubResource("PhysicsMaterial_dnplt")
+physics_material_override = SubResource("PhysicsMaterial_eojuc")
 max_contacts_reported = 5
 contact_monitor = true
 freeze = true
@@ -33,14 +33,14 @@ THROW_FORCE = 1000.0
 MAX_VELOCITY = 700.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ajrty")
+shape = SubResource("CircleShape2D_qjnyl")
 debug_color = Color(0.796078, 0.415686, 0.219608, 0.419608)
 
 [node name="PickupArea" type="Area2D" parent="."]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
-shape = SubResource("CircleShape2D_cyfj5")
+shape = SubResource("CircleShape2D_m2ntc")
 debug_color = Color(0.145098, 0.615686, 0.537255, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -55,7 +55,7 @@ collision_mask = 164
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CuttingArea"]
 position = Vector2(0, -1.5)
-shape = SubResource("CapsuleShape2D_n11d0")
+shape = SubResource("CapsuleShape2D_pabi8")
 
 [node name="ThrowReturnTimer" type="Timer" parent="."]
 one_shot = true

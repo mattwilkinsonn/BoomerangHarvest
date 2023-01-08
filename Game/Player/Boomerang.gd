@@ -38,7 +38,7 @@ var state: BoomerangState = BoomerangState.ON_PLAYER:
 @export var MAX_VELOCITY = 500.0
 @export var RETURN_PREDICTION_MODIFIER = 0.8
 @export var MAX_DISTANCE_FROM_PLAYER = 500.0
-@export var THROW_RETURN_TIMEOUT = .5
+@export var THROW_AUTORETURN_TIME = 2.0
 
 var slope = (
 	(MAX_RETURNING_FORCE - MIN_RETURNING_FORCE) / (0 - RETURNING_FORCE_DISTANCE_SCALING_LIMIT)
@@ -112,7 +112,7 @@ func throw():
 	look_at(aim_direction)
 	apply_central_impulse(aim_direction * THROW_FORCE)
 	apply_torque_impulse(THROW_TORQUE)
-	$ThrowReturnTimer.start(THROW_RETURN_TIMEOUT)
+	$ThrowReturnTimer.start(THROW_AUTORETURN_TIME)
 	$ThrowPlayer.play()
 
 
@@ -132,10 +132,8 @@ func _on_cutting_area_body_entered(body):
 
 
 func _on_body_entered(body):
-	print(body.name)
-	#if body.get_collision_layer_value(4):
 	$RicochetPlayer.play()
 
 
 func _on_return_timer_timeout():
-	pass # Replace with function body.
+	state = BoomerangState.RETURNING

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://bm0wsfgdsx564"]
 
 [ext_resource type="Texture2D" uid="uid://dlnql2wueeqoq" path="res://Assets/2DArt/Sprites/level_witch.jpg" id="1_pbiuy"]
 [ext_resource type="Texture2D" uid="uid://bgha200dkhvjv" path="res://Game/Tilemap_01.png" id="2_w8vfi"]

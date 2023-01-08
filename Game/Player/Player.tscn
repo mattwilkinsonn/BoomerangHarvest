@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cvr11i35g5tlx" path="res://Assets/2DArt/Animated_Sprites/witch_back.png" id="5_as2fo"]
 [ext_resource type="AudioStream" uid="uid://e1llrxrq0enx" path="res://Assets/Sfx/Player/Player_loot_2.wav" id="6_yo5dj"]
 [ext_resource type="AudioStream" uid="uid://7j2vm1iwjond" path="res://Assets/Sfx/Player/player_steps.wav" id="7_b8fou"]
-[ext_resource type="AudioStream" uid="uid://sf2i2qr7klso" path="res://Assets/Sfx/Player/bumped.wav" id="8_wynax"]
+[ext_resource type="AudioStream" uid="uid://bspkr4b6qc5o4" path="res://Assets/Sfx/Player/bumped2.wav" id="8_d5d06"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1et4e"]
 size = Vector2(40, 64)
@@ -299,7 +299,7 @@ volume_db = -5.0
 bus = &"SFX"
 
 [node name="BumpPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_wynax")
+stream = ExtResource("8_d5d06")
 volume_db = -10.0
 bus = &"SFX"
 
