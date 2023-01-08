@@ -81,6 +81,7 @@ Throw={
 2d_physics/layer_6="Zombie"
 2d_physics/layer_7="EffectArea"
 2d_physics/layer_8="Bomb"
+2d_physics/layer_9="BoomerangCutter"
 
 [physics]
 

@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://Game/Harvestable.gd" id="1_n8fqg"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ui1uj"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_0o3tj"]
 
 [node name="Harvestable" type="Area2D"]
 collision_layer = 16
 script = ExtResource("1_n8fqg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ui1uj")
+shape = SubResource("CircleShape2D_0o3tj")
 
 [node name="DespawnTimer" type="Timer" parent="."]
 wait_time = 10.0

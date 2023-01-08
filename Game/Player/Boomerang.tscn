@@ -7,16 +7,16 @@
 [ext_resource type="AudioStream" uid="uid://cpvn4tplrshyo" path="res://Assets/Sfx/boo_fly.wav" id="5_i5pos"]
 [ext_resource type="AudioStream" uid="uid://bwq0cyx2n1cvb" path="res://Assets/Sfx/boo_ricochet.wav" id="6_gqgas"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1dbqi"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tlq8f"]
 bounce = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_85cyc"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bee30"]
 radius = 22.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6i0ty"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_kqomk"]
 radius = 30.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8vspy"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v3o5t"]
 radius = 22.0
 height = 50.0
 
@@ -24,7 +24,7 @@ height = 50.0
 collision_layer = 2
 collision_mask = 40
 inertia = 1.0
-physics_material_override = SubResource("PhysicsMaterial_1dbqi")
+physics_material_override = SubResource("PhysicsMaterial_tlq8f")
 max_contacts_reported = 5
 contact_monitor = true
 freeze = true
@@ -33,14 +33,14 @@ THROW_FORCE = 1000.0
 MAX_VELOCITY = 700.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_85cyc")
+shape = SubResource("CircleShape2D_bee30")
 debug_color = Color(0.796078, 0.415686, 0.219608, 0.419608)
 
 [node name="PickupArea" type="Area2D" parent="."]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
-shape = SubResource("CircleShape2D_6i0ty")
+shape = SubResource("CircleShape2D_kqomk")
 debug_color = Color(0.145098, 0.615686, 0.537255, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -50,12 +50,12 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_aar37")
 
 [node name="CuttingArea" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 256
 collision_mask = 164
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CuttingArea"]
 position = Vector2(0, -1.5)
-shape = SubResource("CapsuleShape2D_8vspy")
+shape = SubResource("CapsuleShape2D_v3o5t")
 
 [node name="ThrowReturnTimer" type="Timer" parent="."]
 one_shot = true
@@ -76,6 +76,7 @@ volume_db = 8.0
 stream = ExtResource("6_gqgas")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
 [connection signal="body_entered" from="CuttingArea" to="." method="_on_cutting_area_body_entered"]
 [connection signal="timeout" from="ThrowReturnTimer" to="." method="_on_return_timer_timeout"]

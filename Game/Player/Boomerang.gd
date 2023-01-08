@@ -131,7 +131,7 @@ func _on_cutting_area_body_entered(body):
 		
 
 
-func _on_body_entered(body: PhysicsBody2D):
-	if body.get_collision_layer_value(4):
-		$RicochetPlayer.play()
-		
+func _on_body_entered(body):
+	print(body.name)
+	#if body.get_collision_layer_value(4):
+	$RicochetPlayer.play()

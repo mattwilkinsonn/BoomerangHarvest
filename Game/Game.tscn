@@ -1,56 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://j3oj5ejfh41c"]
+[gd_scene load_steps=5 format=3 uid="uid://j3oj5ejfh41c"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_q466u"]
 [ext_resource type="PackedScene" uid="uid://bvgggvsbtlvxw" path="res://Game/Player/Player.tscn" id="2_1b36i"]
 [ext_resource type="PackedScene" uid="uid://cebb8iab1rafj" path="res://Game/GameHUD.tscn" id="3_wgmpb"]
-[ext_resource type="PackedScene" uid="uid://cb0lhu5fg0jap" path="res://Game/TestRock.tscn" id="4_c7g43"]
-[ext_resource type="PackedScene" path="res://Game/Levels/level_test.tscn" id="5_odpxs"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i73hc"]
-size = Vector2(66, 67)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdpdx"]
-size = Vector2(67, 66)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ay2ky"]
-size = Vector2(54, 59)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dsp30"]
-size = Vector2(17, 191)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dq86w"]
-size = Vector2(229.75, 42)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_os1m5"]
-size = Vector2(94, 41)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mn3i1"]
-size = Vector2(101, 141)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3kwb"]
-size = Vector2(587, 362)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5axpm"]
-size = Vector2(14, 1080)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cebf"]
-size = Vector2(1920, 10)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ms028"]
-size = Vector2(55, 131)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_42gxy"]
-size = Vector2(136, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oncp"]
-size = Vector2(64, 44)
+[ext_resource type="PackedScene" uid="uid://bs4ghfkr4i0wn" path="res://Game/Levels/level_test.tscn" id="5_odpxs"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_q466u")
 PLANTS_TO_SPAWN = 1.0
 
 [node name="Player" parent="." instance=ExtResource("2_1b36i")]
-position = Vector2(602, 344)
+position = Vector2(371, 469)
 
 [node name="PlantSpawnTimer" type="Timer" parent="."]
 autostart = true
@@ -62,145 +22,6 @@ one_shot = true
 
 [node name="Level_01" parent="." instance=ExtResource("5_odpxs")]
 metadata/_edit_lock_ = true
-
-[node name="TestColliders" type="Node2D" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D"]
-position = Vector2(1513, 482.5)
-shape = SubResource("RectangleShape2D_i73hc")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D2"]
-position = Vector2(1215.5, 334)
-shape = SubResource("RectangleShape2D_jdpdx")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D3"]
-position = Vector2(696, 851)
-shape = SubResource("RectangleShape2D_ay2ky")
-
-[node name="StaticBody2D5" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D5"]
-position = Vector2(1589, 628)
-shape = SubResource("RectangleShape2D_ay2ky")
-
-[node name="StaticBody2D6" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D6"]
-position = Vector2(1143, 404)
-shape = SubResource("RectangleShape2D_ay2ky")
-
-[node name="StaticBody2D7" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D7"]
-position = Vector2(698.5, 484.5)
-shape = SubResource("RectangleShape2D_dsp30")
-
-[node name="StaticBody2D8" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D8"]
-position = Vector2(590.875, 558)
-shape = SubResource("RectangleShape2D_dq86w")
-
-[node name="StaticBody2D9" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D9"]
-position = Vector2(661, 409.5)
-shape = SubResource("RectangleShape2D_os1m5")
-
-[node name="StaticBody2D10" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D10"]
-position = Vector2(821.5, 812.5)
-shape = SubResource("RectangleShape2D_mn3i1")
-
-[node name="StaticBody2D12" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D12"]
-position = Vector2(293.5, 181)
-shape = SubResource("RectangleShape2D_d3kwb")
-
-[node name="StaticBody2D13" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D13"]
-position = Vector2(-1, 540)
-shape = SubResource("RectangleShape2D_5axpm")
-
-[node name="StaticBody2D14" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D14"]
-position = Vector2(1925, 540)
-shape = SubResource("RectangleShape2D_5axpm")
-
-[node name="StaticBody2D15" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D15"]
-position = Vector2(960, 1085)
-shape = SubResource("RectangleShape2D_4cebf")
-
-[node name="StaticBody2D16" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D16"]
-position = Vector2(960, -5)
-shape = SubResource("RectangleShape2D_4cebf")
-
-[node name="StaticBody2D11" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D11"]
-position = Vector2(1286.5, 812.5)
-shape = SubResource("RectangleShape2D_ms028")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="TestColliders/StaticBody2D11"]
-position = Vector2(1329, 850.5)
-shape = SubResource("RectangleShape2D_42gxy")
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="TestColliders"]
-collision_layer = 8
-collision_mask = 47
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D4"]
-position = Vector2(1074, 634)
-shape = SubResource("RectangleShape2D_5oncp")
-
-[node name="TestRock" parent="TestColliders" instance=ExtResource("4_c7g43")]
-position = Vector2(593, 706)
-collision_layer = 8
-collision_mask = 7
 
 [connection signal="harvested_changed" from="Player" to="." method="_on_player_harvested_changed"]
 [connection signal="timeout" from="PlantSpawnTimer" to="." method="_on_plant_spawn_timer_timeout"]

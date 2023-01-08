@@ -1,0 +1,194 @@
+[gd_scene load_steps=16 format=3 uid="uid://b1eb4qngw6i8u"]
+
+[ext_resource type="PackedScene" uid="uid://cb0lhu5fg0jap" path="res://Game/TestRock.tscn" id="1_fw0sh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1obq"]
+size = Vector2(66, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty5vt"]
+size = Vector2(67, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47aef"]
+size = Vector2(54, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4u0o"]
+size = Vector2(17, 191)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbfhb"]
+size = Vector2(229.75, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k4tl"]
+size = Vector2(94, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqsnx"]
+size = Vector2(101, 141)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tsme"]
+size = Vector2(64, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iopcw"]
+size = Vector2(587, 362)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tuku"]
+size = Vector2(14, 1080)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xulul"]
+size = Vector2(1920, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1qg4"]
+size = Vector2(55, 131)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1ckc"]
+size = Vector2(136, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mhln"]
+size = Vector2(64, 44)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TestColliders" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D"]
+position = Vector2(1513, 482.5)
+shape = SubResource("RectangleShape2D_h1obq")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D2"]
+position = Vector2(1215.5, 334)
+shape = SubResource("RectangleShape2D_ty5vt")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D3"]
+position = Vector2(696, 851)
+shape = SubResource("RectangleShape2D_47aef")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D5"]
+position = Vector2(1589, 628)
+shape = SubResource("RectangleShape2D_47aef")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D6"]
+position = Vector2(1143, 404)
+shape = SubResource("RectangleShape2D_47aef")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D7"]
+position = Vector2(698.5, 484.5)
+shape = SubResource("RectangleShape2D_y4u0o")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D8"]
+position = Vector2(590.875, 558)
+shape = SubResource("RectangleShape2D_wbfhb")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D9"]
+position = Vector2(661, 409.5)
+shape = SubResource("RectangleShape2D_1k4tl")
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D10"]
+position = Vector2(821.5, 812.5)
+shape = SubResource("RectangleShape2D_oqsnx")
+
+[node name="StaticBody2D17" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D17"]
+position = Vector2(1733, 403.5)
+shape = SubResource("RectangleShape2D_5tsme")
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D12"]
+position = Vector2(293.5, 181)
+shape = SubResource("RectangleShape2D_iopcw")
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D13"]
+position = Vector2(-1, 540)
+shape = SubResource("RectangleShape2D_7tuku")
+
+[node name="StaticBody2D14" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D14"]
+position = Vector2(1925, 540)
+shape = SubResource("RectangleShape2D_7tuku")
+
+[node name="StaticBody2D15" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D15"]
+position = Vector2(960, 1085)
+shape = SubResource("RectangleShape2D_xulul")
+
+[node name="StaticBody2D16" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D16"]
+position = Vector2(960, -5)
+shape = SubResource("RectangleShape2D_xulul")
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D11"]
+position = Vector2(1286.5, 812.5)
+shape = SubResource("RectangleShape2D_g1qg4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TestColliders/StaticBody2D11"]
+position = Vector2(1329, 850.5)
+shape = SubResource("RectangleShape2D_v1ckc")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="TestColliders"]
+collision_layer = 8
+collision_mask = 47
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestColliders/StaticBody2D4"]
+position = Vector2(1074, 634)
+shape = SubResource("RectangleShape2D_0mhln")
+
+[node name="TestRock" parent="TestColliders" instance=ExtResource("1_fw0sh")]
+position = Vector2(593, 706)
+collision_layer = 8
+collision_mask = 7
