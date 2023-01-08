@@ -107,8 +107,8 @@ collision_mask = 65
 shape = SubResource("CircleShape2D_vqu5u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4, -26)
-scale = Vector2(0.6, 0.6)
+position = Vector2(-5, -24)
+scale = Vector2(0.55, 0.55)
 frames = SubResource("SpriteFrames_pe23k")
 playing = true
 

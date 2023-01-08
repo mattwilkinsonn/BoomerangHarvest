@@ -107,7 +107,8 @@ animations = [{
 script = ExtResource("1_iqluf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(15, -90)
+position = Vector2(10, -58)
+scale = Vector2(0.6, 0.6)
 frames = SubResource("SpriteFrames_kjbcx")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

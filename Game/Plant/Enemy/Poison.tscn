@@ -99,7 +99,8 @@ collision_layer = 64
 shape = SubResource("CircleShape2D_xuga8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.33, 0.33)
+position = Vector2(2, -7)
+scale = Vector2(0.4, 0.4)
 frames = SubResource("SpriteFrames_62miy")
 playing = true
 
