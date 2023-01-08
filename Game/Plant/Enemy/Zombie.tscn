@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://21sp7qi1p2rl"]
+[gd_scene load_steps=4 format=3 uid="uid://21sp7qi1p2rl"]
 
 [ext_resource type="Script" path="res://Game/Plant/Enemy/Zombie.gd" id="1_ixnr2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_grvp3"]
 radius = 20.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2mbs7"]
+radius = 20.0
+
 [node name="Zombie" type="CharacterBody2D"]
 collision_layer = 32
-collision_mask = 11
+collision_mask = 10
 motion_mode = 1
 script = ExtResource("1_ixnr2")
 
@@ -17,4 +20,11 @@ shape = SubResource("CircleShape2D_grvp3")
 [node name="DeathTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="GameplayCollider" type="Area2D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayCollider"]
+shape = SubResource("CircleShape2D_2mbs7")
+
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="area_entered" from="GameplayCollider" to="." method="_on_gameplay_collider_area_entered"]

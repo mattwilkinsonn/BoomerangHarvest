@@ -27,3 +27,8 @@ func delayed_death():
 
 func _on_death_timer_timeout():
 	queue_free()
+
+
+func _on_gameplay_collider_area_entered(area):
+	if area.get_parent() == player:
+		player.bump(global_position.direction_to(player.global_position))

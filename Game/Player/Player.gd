@@ -3,6 +3,9 @@ extends CharacterBody2D
 @export var MOVEMENT_SPEED = 300.0
 @export var SLOWED_MOVEMENT_SPEED = 150.0
 @export var MAX_HEALTH = 100.0
+@export var BUMP_TIME = 0.1
+@export var BUMP_DISTANCE = 50.0
+@export var BUMP_TIMEOUT = 0.05
 
 const BoomerangScene = preload("res://Game/Player/Boomerang.tscn")
 const Plant = preload("res://Game/Plant/Plant.gd")
@@ -13,10 +16,13 @@ var boomerang
 
 enum MovementState {
 	NORMAL,
-	SLOWED
+	SLOWED,
+	BUMPING
 }
 
 var movement_state: MovementState = MovementState.NORMAL
+var bump_direction: Vector2
+var bump_magnitude: float = BUMP_DISTANCE / BUMP_TIME
 
 signal harvested_changed
 var harvested: int = 0:
@@ -49,14 +55,19 @@ func _process(delta):
 	elif velocity.x < 0:
 		$AnimatedSprite2D.play("left")
 	
-	movement_state = MovementState.NORMAL
-	for area in $GameplayCollider.get_overlapping_areas():
-		if area.get_parent() is Poison:
-			movement_state = MovementState.SLOWED
-			break
+	if movement_state != MovementState.BUMPING:
+		movement_state = MovementState.NORMAL
+		for area in $GameplayCollider.get_overlapping_areas():
+			if area.get_parent() is Poison:
+				movement_state = MovementState.SLOWED
+				break
 
 
 func set_movement(input_direction: Vector2):
+	if movement_state == MovementState.BUMPING:
+		velocity = bump_direction * bump_magnitude
+		return
+	
 	var movement_speed
 	match movement_state:
 		MovementState.NORMAL:
@@ -98,3 +109,18 @@ func _on_gameplay_collider_area_entered(area: Area2D):
 	if area is Harvestable:
 		harvested += 1
 		area.queue_free()
+
+func bump(direction: Vector2):
+	if not $BumpTimer.is_stopped():
+		return
+	bump_direction = direction
+	movement_state = MovementState.BUMPING
+	$BumpTimer.start(BUMP_TIME)
+	
+
+
+func _on_bump_timer_timeout():
+	if movement_state == MovementState.BUMPING:
+		movement_state = MovementState.NORMAL
+		$BumpTimer.start(BUMP_TIMEOUT)
+	

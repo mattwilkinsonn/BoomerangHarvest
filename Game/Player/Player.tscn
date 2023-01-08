@@ -270,7 +270,7 @@ position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_1et4e")
 
 [node name="GameplayCollider" type="Area2D" parent="."]
-collision_mask = 86
+collision_mask = 118
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayCollider"]
 position = Vector2(0, 10)
@@ -282,5 +282,9 @@ scale = Vector2(0.3, 0.3)
 frames = SubResource("SpriteFrames_5s32l")
 animation = &"down"
 
+[node name="BumpTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="area_entered" from="GameplayCollider" to="." method="_on_gameplay_collider_area_entered"]
 [connection signal="body_entered" from="GameplayCollider" to="." method="_on_gameplay_collider_body_entered"]
+[connection signal="timeout" from="BumpTimer" to="." method="_on_bump_timer_timeout"]

@@ -24,3 +24,5 @@ collision_layer = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PoisonField"]
 shape = SubResource("CircleShape2D_47wpm")
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
