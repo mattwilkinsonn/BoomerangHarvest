@@ -22,6 +22,7 @@ autostart = true
 
 [node name="GameplayCollider" type="Area2D" parent="."]
 collision_layer = 32
+collision_mask = 65
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayCollider"]
 shape = SubResource("CircleShape2D_2mbs7")

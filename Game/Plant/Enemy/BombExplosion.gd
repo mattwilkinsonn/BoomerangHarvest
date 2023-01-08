@@ -1,9 +1,20 @@
 extends Area2D
 
 @export var EXPLOSION_TIME = 0.1
+@export var EFFECT_TIME = 0.3
 @export var COLOR = Color.ORANGE
 
+const Zombie = preload("res://Game/Plant/Enemy/Zombie.gd")
+const Plant = preload("res://Game/Plant/Plant.gd")
+const Poison = preload("res://Game/Plant/Enemy/Poison.gd")
+
 var player
+
+enum ExplosionState {
+	STARTED,
+	PUSHED
+}
+var explosion_state: ExplosionState = ExplosionState.STARTED
 
 func _draw():
 	draw_circle(Vector2.ZERO, $CollisionShape2D.shape.radius, COLOR)
@@ -20,7 +31,20 @@ func _process(delta):
 
 
 func _on_life_timer_timeout():
-	for area in get_overlapping_areas():
-		if area.get_parent() == player:
-			player.bump(global_position.direction_to(player.global_position), Player.BumpType.EXPLOSION)
+	if explosion_state == ExplosionState.STARTED:
+		for area in get_overlapping_areas():
+			var parent = area.get_parent()
+			if parent == player:
+				player.bump(global_position.direction_to(player.global_position), Player.BumpType.EXPLOSION)
+				continue
+			if parent is Zombie:
+				parent.queue_free()
+		
+		for body in get_overlapping_bodies():
+			if body is Plant or body is Poison:
+				body.queue_free()
+		explosion_state = ExplosionState.PUSHED
+		$LifeTimer.start(EFFECT_TIME)
+		return
+	
 	queue_free()
