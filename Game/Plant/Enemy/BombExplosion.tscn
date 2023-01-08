@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://vsvyv03jgmv1"]
+[gd_scene load_steps=5 format=3 uid="uid://cnn6gncgfb3wb"]
 
 [ext_resource type="Script" path="res://Game/Plant/Enemy/BombExplosion.gd" id="1_ma5ea"]
 [ext_resource type="AudioStream" uid="uid://xgmlfobb2vxp" path="res://Assets/Sfx/plant_explode.wav" id="2_o0xbh"]
 [ext_resource type="PackedScene" uid="uid://bmlvqvndu7w6q" path="res://Assets/2DArt/VFX/ExplosionVFX.tscn" id="3_4revp"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nea0v"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_85w7n"]
 radius = 200.0
 
 [node name="BombExplosion" type="Area2D"]
@@ -14,16 +14,14 @@ script = ExtResource("1_ma5ea")
 COLOR = Color(1, 0.647059, 0, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_nea0v")
+shape = SubResource("CircleShape2D_85w7n")
 
 [node name="LifeTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="ExplosionPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_o0xbh")
-volume_db = 2.0
 
 [node name="ExplosionVFX" parent="." instance=ExtResource("3_4revp")]
-scale = Vector2(2, 2)
 
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

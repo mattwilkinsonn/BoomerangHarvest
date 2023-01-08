@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://drukpci5wde6r"]
+[gd_scene load_steps=5 format=3 uid="uid://drukpci5wde6r"]
 
 [ext_resource type="Script" path="res://Menus/GameOverMenu.gd" id="1_shxwq"]
-[ext_resource type="AudioStream" uid="uid://gnl4wr7oufa4" path="res://Assets/Sfx/highscore.wav" id="2_1x70s"]
+[ext_resource type="AudioStream" uid="uid://dguqlh4x6snac" path="res://Assets/Sfx/GameOver/highscore_great.wav" id="2_x4xpn"]
+[ext_resource type="AudioStream" uid="uid://te0freu3nfug" path="res://Assets/Sfx/GameOver/highscore_average.wav" id="3_et5a4"]
+[ext_resource type="AudioStream" uid="uid://wy8v3ag5dgqg" path="res://Assets/Sfx/GameOver/highscore.wav" id="4_xijm1"]
 
 [node name="GameOverMenu" type="CanvasLayer"]
 script = ExtResource("1_shxwq")
@@ -20,41 +22,54 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameOver" type="Label" parent="VBoxContainer"]
-layout_mode = 2
+offset_right = 336.0
+offset_bottom = 45.0
 size_flags_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Game Over"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
+offset_top = 198.0
+offset_right = 336.0
+offset_bottom = 278.0
 size_flags_vertical = 6
 
 [node name="Score" type="Label" parent="VBoxContainer/VBoxContainer"]
-layout_mode = 2
+offset_right = 336.0
+offset_bottom = 38.0
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 25
 text = "Score: 0"
 horizontal_alignment = 1
 
 [node name="Walpurgis" type="Label" parent="VBoxContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 42.0
+offset_right = 336.0
+offset_bottom = 80.0
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 25
 text = "Walpurgis will reward you..."
 
 [node name="PlayAgain" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+offset_top = 440.0
+offset_right = 336.0
+offset_bottom = 476.0
 size_flags_vertical = 10
 theme_override_font_sizes/font_size = 20
 text = "Play Again"
 
 [node name="GoodPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_1x70s")
+stream = ExtResource("2_x4xpn")
 autoplay = true
+bus = &"Music"
 
 [node name="AveragePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_et5a4")
+bus = &"Music"
 
 [node name="BadPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xijm1")
+bus = &"Music"
 
 [connection signal="pressed" from="VBoxContainer/PlayAgain" to="." method="_on_play_again_pressed"]

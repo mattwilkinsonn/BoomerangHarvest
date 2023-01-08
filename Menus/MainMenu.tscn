@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdtbpoaju7kja"]
+[gd_scene load_steps=3 format=3 uid="uid://cdtbpoaju7kja"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_p42l8"]
+[ext_resource type="AudioStream" uid="uid://clxyagtganfst" path="res://Assets/Music/music_menu.mp3" id="2_huqyr"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_p42l8")
@@ -31,10 +32,13 @@ horizontal_alignment = 1
 offset_top = 300.0
 offset_right = 218.0
 offset_bottom = 350.0
-grow_horizontal = 2
-grow_vertical = 2
 size_flags_vertical = 10
 theme_override_font_sizes/font_size = 30
 text = "Play"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_huqyr")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

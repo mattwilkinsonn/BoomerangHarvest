@@ -6,7 +6,7 @@
 [node name="ExplosionVFX" type="GPUParticles2D"]
 scale = Vector2(1.87611, 1.87611)
 emitting = false
-amount = 20
+amount = 100
 process_material = ExtResource("1_65y54")
 texture = ExtResource("2_2hlow")
 lifetime = 2.0

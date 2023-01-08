@@ -57,11 +57,20 @@ func _on_lifecycle_timer_timeout():
 			$GrowPlayer.play()
 			queue_redraw()
 		PlantState.HARVESTABLE:
-			var enemy = scene_for_type[type].instantiate()
-			enemy.global_position = global_position
-			get_parent().add_child(enemy)
+			spawn_enemy()
 			queue_free()
-		
+func spawn_enemy():
+	if type == PlantType.ZOMBIE:
+		var zombie = ZombieScene.instantiate()
+		zombie.global_position = global_position
+		get_parent().get_node("NavigationRegion2D").add_child(zombie)
+		return
+	var enemy = scene_for_type[type].instantiate()
+	enemy.global_position = global_position
+	get_parent().add_child(enemy)
+	
+
+
 func death():
 	var plant_death = PlantDeathScene.instantiate()
 	plant_death.global_position = global_position

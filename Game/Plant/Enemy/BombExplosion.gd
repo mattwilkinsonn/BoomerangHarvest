@@ -1,7 +1,7 @@
 extends Area2D
 
-@export var EXPLOSION_TIME = 0.1
-@export var EFFECT_TIME = 0.3
+@export var EXPLOSION_TIME = 0.5
+@export var EFFECT_TIME = 0.5
 @export var COLOR = Color.ORANGE
 
 const Zombie = preload("res://Game/Plant/Enemy/Zombie.gd")
@@ -21,6 +21,7 @@ var explosion_state: ExplosionState = ExplosionState.STARTED
 func _ready():
 	player = get_node("../Player")
 	$LifeTimer.start(EXPLOSION_TIME)
+	$ExplosionPlayer.play()	
 	$ExplosionVFX.emitting = true
 	
 
@@ -47,7 +48,6 @@ func _on_life_timer_timeout():
 				body.explode_delayed()
 		explosion_state = ExplosionState.PUSHED
 		$LifeTimer.start(EFFECT_TIME)
-		$ExplosionPlayer.play()
 		return
 	
 	queue_free()
