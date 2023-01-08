@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmlvqvndu7w6q"]
+
+[ext_resource type="Material" uid="uid://doq0kxxe8evni" path="res://Assets/2DArt/VFX/Explosion_VFX.tres" id="1_65y54"]
+[ext_resource type="Texture2D" uid="uid://bupwa2a8a2w8r" path="res://Assets/2DArt/Texture/cookie_light.png" id="2_2hlow"]
+
+[node name="ExplosionVFX" type="GPUParticles2D"]
+scale = Vector2(1.87611, 1.87611)
+emitting = false
+amount = 100
+process_material = ExtResource("1_65y54")
+texture = ExtResource("2_2hlow")
+lifetime = 2.0
+one_shot = true
+speed_scale = 4.0
+explosiveness = 1.0
+trail_enabled = true
+trail_lifetime = 0.01
+trail_sections = 6
+trail_section_subdivisions = 1

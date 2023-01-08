@@ -17,13 +17,11 @@ enum ExplosionState {
 }
 var explosion_state: ExplosionState = ExplosionState.STARTED
 
-func _draw():
-	draw_circle(Vector2.ZERO, $CollisionShape2D.shape.radius, COLOR)
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_node("../Player")
 	$LifeTimer.start(EXPLOSION_TIME)
+	$ExplosionVFX.emitting = true
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
