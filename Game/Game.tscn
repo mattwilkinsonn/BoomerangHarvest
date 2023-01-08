@@ -257,6 +257,10 @@ stream = ExtResource("5_54ppc")
 volume_db = -18.0
 autoplay = true
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(960, 540)
+current = true
+
 [connection signal="harvested_changed" from="Player" to="." method="_on_player_harvested_changed"]
 [connection signal="timeout" from="PlantSpawnTimer" to="." method="_on_plant_spawn_timer_timeout"]
 [connection signal="init_hud" from="GameHUD" to="." method="_on_game_hud_init_hud"]
