@@ -106,8 +106,14 @@ position = Vector2(159, 603)
 [node name="SpawnPoint27" type="Node2D" parent="Spawns"]
 position = Vector2(603, 487)
 
+[node name="SpawnPoint67" type="Node2D" parent="Spawns"]
+position = Vector2(551, 468)
+
 [node name="SpawnPoint28" type="Node2D" parent="Spawns"]
 position = Vector2(119, 490)
+
+[node name="SpawnPoint68" type="Node2D" parent="Spawns"]
+position = Vector2(171, 485)
 
 [node name="SpawnPoint29" type="Node2D" parent="Spawns"]
 position = Vector2(292, 635)
@@ -222,6 +228,27 @@ position = Vector2(933, 595)
 
 [node name="SpawnPoint66" type="Node2D" parent="Spawns"]
 position = Vector2(1007, 606)
+
+[node name="SpawnPoint69" type="Node2D" parent="Spawns"]
+position = Vector2(1610, 741)
+
+[node name="SpawnPoint70" type="Node2D" parent="Spawns"]
+position = Vector2(1613, 374)
+
+[node name="SpawnPoint71" type="Node2D" parent="Spawns"]
+position = Vector2(1467, 250)
+
+[node name="SpawnPoint72" type="Node2D" parent="Spawns"]
+position = Vector2(800, 155)
+
+[node name="SpawnPoint73" type="Node2D" parent="Spawns"]
+position = Vector2(532, 634)
+
+[node name="SpawnPoint74" type="Node2D" parent="Spawns"]
+position = Vector2(688, 766)
+
+[node name="SpawnPoint75" type="Node2D" parent="Spawns"]
+position = Vector2(794, 983)
 
 [connection signal="harvested_changed" from="Player" to="." method="_on_player_harvested_changed"]
 [connection signal="timeout" from="PlantSpawnTimer" to="." method="_on_plant_spawn_timer_timeout"]
