@@ -170,10 +170,10 @@ position = Vector2(1011, 859)
 position = Vector2(922, 821)
 
 [node name="SpawnPoint47" type="Node2D" parent="Spawns"]
-position = Vector2(860, 704)
+position = Vector2(913, 650)
 
 [node name="SpawnPoint48" type="Node2D" parent="Spawns"]
-position = Vector2(860, 704)
+position = Vector2(791, 680)
 
 [node name="SpawnPoint49" type="Node2D" parent="Spawns"]
 position = Vector2(822, 464)

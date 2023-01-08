@@ -8,6 +8,6 @@ script = ExtResource("1_3juqo")
 metadata/_edit_horizontal_guides_ = [465.0]
 metadata/_edit_vertical_guides_ = [-4820.0]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_68xle")
 autoplay = true

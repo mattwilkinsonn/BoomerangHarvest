@@ -18,6 +18,8 @@ func _on_play():
 	current_menu = null
 	game = GameScene.instantiate()
 	game.game_over.connect(_on_game_over)
+	if not $MusicPlayer.playing:
+		$MusicPlayer.play()
 	add_child(game)
 	
 func _on_game_over(score: int):
@@ -25,6 +27,7 @@ func _on_game_over(score: int):
 	current_menu = GameOverMenuScene.instantiate()
 	current_menu.init(score)
 	current_menu.play_again.connect(_on_play)
+	$MusicPlayer.stop()
 	add_child(current_menu)
 	
 	

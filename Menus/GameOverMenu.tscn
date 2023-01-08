@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://drukpci5wde6r"]
+[gd_scene load_steps=3 format=3 uid="uid://drukpci5wde6r"]
 
 [ext_resource type="Script" path="res://Menus/GameOverMenu.gd" id="1_shxwq"]
+[ext_resource type="AudioStream" uid="uid://gnl4wr7oufa4" path="res://Assets/Sfx/highscore.wav" id="2_1x70s"]
 
 [node name="GameOverMenu" type="CanvasLayer"]
 script = ExtResource("1_shxwq")
@@ -19,17 +20,26 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameOver" type="Label" parent="VBoxContainer"]
-layout_mode = 2
+offset_right = 88.0
+offset_bottom = 26.0
 text = "Game Over"
 horizontal_alignment = 1
 
 [node name="Score" type="Label" parent="VBoxContainer"]
-layout_mode = 2
+offset_top = 30.0
+offset_right = 88.0
+offset_bottom = 56.0
 text = "Score: 0"
 horizontal_alignment = 1
 
 [node name="PlayAgain" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+offset_top = 60.0
+offset_right = 88.0
+offset_bottom = 91.0
 text = "Play Again"
+
+[node name="GameOverPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1x70s")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/PlayAgain" to="." method="_on_play_again_pressed"]
