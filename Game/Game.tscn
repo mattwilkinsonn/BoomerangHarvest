@@ -1,13 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://j3oj5ejfh41c"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_q466u"]
-[ext_resource type="PackedScene" uid="uid://bjdqcylveiggj" path="res://Game/Player/Player.tscn" id="2_1b36i"]
+[ext_resource type="PackedScene" uid="uid://bvgggvsbtlvxw" path="res://Game/Player/Player.tscn" id="2_1b36i"]
 [ext_resource type="PackedScene" uid="uid://cebb8iab1rafj" path="res://Game/GameHUD.tscn" id="3_wgmpb"]
 [ext_resource type="PackedScene" uid="uid://bs4ghfkr4i0wn" path="res://Game/Levels/level_test.tscn" id="5_odpxs"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_q466u")
-PLANTS_TO_SPAWN = 1.0
 
 [node name="Player" parent="." instance=ExtResource("2_1b36i")]
 position = Vector2(371, 469)

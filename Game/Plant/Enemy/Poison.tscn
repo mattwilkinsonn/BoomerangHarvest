@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Game/Plant/Enemy/Poison.gd" id="1_f5m30"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ei6pt"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_sy3gq"]
 radius = 20.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_252y2"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xuga8"]
 radius = 200.0
 
 [node name="Poison" type="StaticBody2D"]
@@ -15,7 +15,7 @@ script = ExtResource("1_f5m30")
 POISON_FIELD_COLOR = Color(0.627451, 0.12549, 0.941176, 0.172549)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ei6pt")
+shape = SubResource("CircleShape2D_sy3gq")
 
 [node name="DeathTimer" type="Timer" parent="."]
 
@@ -23,6 +23,6 @@ shape = SubResource("CircleShape2D_ei6pt")
 collision_layer = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PoisonField"]
-shape = SubResource("CircleShape2D_252y2")
+shape = SubResource("CircleShape2D_xuga8")
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

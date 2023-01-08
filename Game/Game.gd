@@ -6,6 +6,20 @@ const PlantScene = preload("res://Game/Plant/Plant.tscn")
 @export var PLANT_SPAWN_TIMER = 2.0
 @export var GAME_TIME: int = 120
 
+var game_stages = {
+	GameStage.STAGE1: {"time": 30, "spawn_time": 2, "spawn_amount": 2, "plant_sapling_time": 2.5, "plant_harvestable_time": 2.5},
+	GameStage.STAGE2: {"time": 30, "spawn_time": 2, "spawn_amount": 2, "plant_sapling_time": 2.5, "plant_harvestable_time": 2.5},
+	GameStage.STAGE3: {"time": 30, "spawn_time": 2, "spawn_amount": 2, "plant_sapling_time": 2.5, "plant_harvestable_time": 2.5},
+	GameStage.STAGE4: {"time": 30, "spawn_time": 2, "spawn_amount": 2, "plant_sapling_time": 2.5, "plant_harvestable_time": 2.5}
+}
+
+enum GameStage {
+	STAGE1,
+	STAGE2,
+	STAGE3,
+	STAGE4
+}
+
 signal game_over(score)
 
 var rand_generate = RandomNumberGenerator.new()

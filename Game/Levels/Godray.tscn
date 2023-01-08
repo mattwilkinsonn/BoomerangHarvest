@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5tvx5s2ragjn"]
+
+[ext_resource type="Shader" path="res://Game/Levels/Godrays.gdshader" id="1_lobtg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4qwva"]
+shader = ExtResource("1_lobtg")
+shader_parameter/angle = null
+shader_parameter/position = null
+shader_parameter/spread = null
+shader_parameter/cutoff = null
+shader_parameter/falloff = null
+shader_parameter/edge_fade = null
+shader_parameter/speed = null
+shader_parameter/ray1_density = null
+shader_parameter/ray2_density = null
+shader_parameter/ray2_intensity = null
+shader_parameter/color = Vector4(0.5, 0.5, 1, 0.5)
+shader_parameter/hdr = false
+shader_parameter/seed = null
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_nros3"]
+
+[node name="Godray" type="Sprite2D"]
+material = SubResource("ShaderMaterial_4qwva")
+scale = Vector2(464, 310)
+texture = SubResource("CanvasTexture_nros3")

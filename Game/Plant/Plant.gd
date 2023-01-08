@@ -13,7 +13,19 @@ enum PlantState { SAPLING = 0, HARVESTABLE = 1 }
 
 enum PlantType { ZOMBIE = 0, POISON = 1, BOMB = 2 }
 
-var state: PlantState = PlantState.SAPLING
+var state: PlantState = PlantState.SAPLING:
+	get:
+		return state
+	set(new_state):
+		if new_state == PlantState.SAPLING:
+			$AnimatedSprite2D.position = Vector2.ZERO
+			$AnimatedSprite2D.play("sapling")
+		
+		if new_state == PlantState.HARVESTABLE:
+			$AnimatedSprite2D.position = Vector2(5, -19)
+			$AnimatedSprite2D.play("harvestable")
+			
+		state = new_state
 var type: PlantType = PlantType.ZOMBIE
 
 var scene_for_type = {
@@ -30,15 +42,6 @@ func init(plant_type: PlantType):
 
 func _ready():
 	$LifecycleTimer.start(SAPLING_TIME)
-
-func _draw():
-	var color
-	match state:
-		PlantState.SAPLING:
-			color = Color.YELLOW
-		PlantState.HARVESTABLE:
-			color = Color.GREEN
-	draw_circle(Vector2.ZERO, $CollisionShape2D.shape.radius, color)
 
 
 func _on_lifecycle_timer_timeout():
