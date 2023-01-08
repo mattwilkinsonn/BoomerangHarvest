@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://vqifksuotvgm"]
+[gd_scene load_steps=12 format=3]
 
-[ext_resource type="Texture2D" uid="uid://dlnql2wueeqoq" path="res://level_witch.jpg" id="1_4mn1u"]
+[ext_resource type="Texture2D" uid="uid://dlnql2wueeqoq" path="res://Assets/2DArt/Sprites/level_witch.jpg" id="1_4mn1u"]
 [ext_resource type="Texture2D" uid="uid://bgha200dkhvjv" path="res://Game/Tilemap_01.png" id="2_sqldl"]
-[ext_resource type="Texture2D" uid="uid://b2f77l4fv7odj" path="res://Assets/_2D_Art/Sprites/Tilemap_02.png" id="3_528ee"]
-[ext_resource type="Texture2D" uid="uid://bbj7wjasamqf6" path="res://Assets/_2D_Art/Sprites/Tilemap_03.png" id="4_dhvp3"]
-[ext_resource type="Texture2D" uid="uid://bask70vb1wnpy" path="res://Assets/_2D_Art/Texture/soft_light01.jpg" id="5_cqola"]
+[ext_resource type="Texture2D" uid="uid://b2f77l4fv7odj" path="res://Assets/2DArt/Sprites/Tilemap_02.png" id="3_528ee"]
+[ext_resource type="Texture2D" uid="uid://bbj7wjasamqf6" path="res://Assets/2DArt/Sprites/Tilemap_03.png" id="4_dhvp3"]
+[ext_resource type="Texture2D" uid="uid://bask70vb1wnpy" path="res://Assets/2DArt/Texture/soft_light01.jpg" id="5_cqola"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a1n4g"]
 resource_name = "Tree01"

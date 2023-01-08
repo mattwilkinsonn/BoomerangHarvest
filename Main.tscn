@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccyqbjgxd33a7"]
+[gd_scene load_steps=3 format=3 uid="uid://o4li02r1uj2p"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_3juqo"]
+[ext_resource type="AudioStream" uid="uid://dory16axklykp" path="res://Assets/Music/wip_gameplay_music_trimmed.mp3" id="2_68xle"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3juqo")
 metadata/_edit_horizontal_guides_ = [465.0]
 metadata/_edit_vertical_guides_ = [-4820.0]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_68xle")
+autoplay = true

@@ -1,10 +1,10 @@
-[gd_scene load_steps=65 format=3 uid="uid://bjdqcylveiggj"]
+[gd_scene load_steps=65 format=3 uid="uid://bvgggvsbtlvxw"]
 
 [ext_resource type="Script" path="res://Game/Player/Player.gd" id="1_22ng5"]
-[ext_resource type="Texture2D" uid="uid://dlshyolnfwwaj" path="res://Assets/witch_front.png" id="2_g2faq"]
-[ext_resource type="Texture2D" uid="uid://b534lvbvdwm8p" path="res://Assets/witch_sideleft.png" id="3_bco1s"]
-[ext_resource type="Texture2D" uid="uid://dr7yd6e1ih25n" path="res://Assets/witch_sideright.png" id="4_ishxi"]
-[ext_resource type="Texture2D" uid="uid://cvr11i35g5tlx" path="res://Assets/witch_back.png" id="5_as2fo"]
+[ext_resource type="Texture2D" uid="uid://dlshyolnfwwaj" path="res://Assets/2DArt/Animated_Sprites/witch_front.png" id="2_g2faq"]
+[ext_resource type="Texture2D" uid="uid://b534lvbvdwm8p" path="res://Assets/2DArt/Animated_Sprites/witch_sideleft.png" id="3_bco1s"]
+[ext_resource type="Texture2D" uid="uid://dr7yd6e1ih25n" path="res://Assets/2DArt/Animated_Sprites/witch_sideright.png" id="4_ishxi"]
+[ext_resource type="Texture2D" uid="uid://cvr11i35g5tlx" path="res://Assets/2DArt/Animated_Sprites/witch_back.png" id="5_as2fo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1et4e"]
 size = Vector2(40, 64)

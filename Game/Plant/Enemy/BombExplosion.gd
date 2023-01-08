@@ -49,6 +49,7 @@ func _on_life_timer_timeout():
 				body.explode_delayed()
 		explosion_state = ExplosionState.PUSHED
 		$LifeTimer.start(EFFECT_TIME)
+		$ExplosionPlayer.play()
 		return
 	
 	queue_free()

@@ -1,21 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0v878j7nm3ix"]
+[gd_scene load_steps=3 format=3 uid="uid://b0v878j7nm3ix"]
 
-[ext_resource type="Script" path="res://Game/Plant/Enemy/Bomb.gd" id="1_p0g7h"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_fajry"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_12uj7"]
 radius = 20.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t424p"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gdqs"]
 radius = 21.0
 
 [node name="Bomb" type="StaticBody2D"]
 collision_layer = 12
 collision_mask = 99
-script = ExtResource("1_p0g7h")
-EXPLOSION_COLOR = Color(1, 0.647059, 0, 0.466667)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_fajry")
+shape = SubResource("CircleShape2D_12uj7")
 
 [node name="LifeTimer" type="Timer" parent="."]
 one_shot = true
@@ -25,6 +21,6 @@ collision_layer = 128
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayCollider"]
-shape = SubResource("CircleShape2D_t424p")
+shape = SubResource("CircleShape2D_4gdqs")
 
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

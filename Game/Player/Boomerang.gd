@@ -16,6 +16,8 @@ var state: BoomerangState = BoomerangState.ON_PLAYER:
 		if state == new_state:
 			return
 			
+		if new_state == BoomerangState.ON_PLAYER:
+			$CatchPlayer.play()
 		var should_monitor_cutting = new_state != BoomerangState.ON_PLAYER
 		$CuttingArea.monitorable = should_monitor_cutting
 		$CuttingArea.monitoring = should_monitor_cutting
@@ -23,6 +25,7 @@ var state: BoomerangState = BoomerangState.ON_PLAYER:
 		if new_state == BoomerangState.RETURNING:
 			$ThrowReturnTimer.stop()
 			apply_torque_impulse(RETURN_TORQUE)
+			$ReturnPlayer.play()
 		
 		state = new_state
 
@@ -110,6 +113,7 @@ func throw():
 	apply_central_impulse(aim_direction * THROW_FORCE)
 	apply_torque_impulse(THROW_TORQUE)
 	$ThrowReturnTimer.start(THROW_RETURN_TIMEOUT)
+	$ThrowPlayer.play()
 
 
 func _on_cutting_area_body_entered(body):
@@ -124,4 +128,10 @@ func _on_cutting_area_body_entered(body):
 	if body is Bomb:
 		body.explode_delayed()
 		state = BoomerangState.RETURNING
+		
+
+
+func _on_body_entered(body: PhysicsBody2D):
+	if body.get_collision_layer_value(4):
+		$RicochetPlayer.play()
 		

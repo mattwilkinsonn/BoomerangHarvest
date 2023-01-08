@@ -46,6 +46,7 @@ func _on_lifecycle_timer_timeout():
 		PlantState.SAPLING:
 			state = PlantState.HARVESTABLE
 			$LifecycleTimer.start(HARVESTABLE_TIME)
+			$GrowPlayer.play()
 			queue_redraw()
 		PlantState.HARVESTABLE:
 			var enemy = scene_for_type[type].instantiate()

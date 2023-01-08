@@ -14,8 +14,24 @@ func _process(_delta):
 
 
 func set_time_remaining(seconds: int):
-	$VBoxContainer/TimeRemaining.text = "Time Remaining: " + str(seconds)
+	var minutes = seconds / 60
+	var seconds_after = seconds % 60
+	$VBoxContainer/TimeRemaining.text = "Time Remaining " + seconds_to_output(seconds)
+	
+func seconds_to_output(seconds: int):
+	var minutes = seconds / 60
+	var seconds_after = seconds % 60
+	
+	if minutes <= 0:
+		return str(seconds)
+	
+	var middle_part = ":"
+	if seconds_after < 10:
+		middle_part += "0"
+	
+	return str(minutes) + middle_part + str(seconds_after)
+	
 
 
 func set_harvest_indicator(harvested: int):
-	$VBoxContainer/Harvested.text = "Harvested: " + str(harvested)
+	$VBoxContainer/Harvested.text = "Harvested " + str(harvested)
