@@ -26,3 +26,7 @@ func _on_life_timer_timeout():
 	explosion.global_position = global_position
 	get_parent().add_child(explosion)
 	queue_free()
+
+func explode_delayed():
+	$LifeTimer.start(0.1)
+	

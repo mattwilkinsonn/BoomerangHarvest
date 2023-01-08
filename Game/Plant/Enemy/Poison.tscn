@@ -9,7 +9,7 @@ radius = 20.0
 radius = 100.0
 
 [node name="Poison" type="StaticBody2D"]
-collision_layer = 4
+collision_layer = 12
 collision_mask = 99
 script = ExtResource("1_f5m30")
 POISON_FIELD_COLOR = Color(0.627451, 0.12549, 0.941176, 0.172549)

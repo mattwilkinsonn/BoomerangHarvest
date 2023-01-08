@@ -3,6 +3,7 @@ class_name Boomerang
 
 const Plant = preload("res://Game/Plant/Plant.gd")
 const Zombie = preload("res://Game/Plant/Enemy/Zombie.gd")
+const Bomb = preload("res://Game/Plant/Enemy/Bomb.gd")
 
 enum BoomerangState { ON_PLAYER, FLYING, RETURNING }
 
@@ -118,3 +119,9 @@ func _on_cutting_area_body_entered(body):
 	if body is Zombie:
 		body.queue_free()
 		state = BoomerangState.RETURNING
+		
+	
+	if body is Bomb:
+		body.explode_delayed()
+		state = BoomerangState.RETURNING
+		

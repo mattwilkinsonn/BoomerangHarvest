@@ -7,6 +7,7 @@ extends Area2D
 const Zombie = preload("res://Game/Plant/Enemy/Zombie.gd")
 const Plant = preload("res://Game/Plant/Plant.gd")
 const Poison = preload("res://Game/Plant/Enemy/Poison.gd")
+const Bomb = preload("res://Game/Plant/Enemy/Bomb.gd")
 
 var player
 
@@ -43,6 +44,9 @@ func _on_life_timer_timeout():
 		for body in get_overlapping_bodies():
 			if body is Plant or body is Poison:
 				body.queue_free()
+			
+			if body is Bomb:
+				body.explode_delayed()
 		explosion_state = ExplosionState.PUSHED
 		$LifeTimer.start(EFFECT_TIME)
 		return
