@@ -8,10 +8,14 @@ const HarvestableScene = preload("res://Game/Harvestable.tscn")
 const ZombieScene = preload("res://Game/Plant/Enemy/Zombie.tscn")
 const PoisonScene = preload("res://Game/Plant/Enemy/Poison.tscn")
 const BombScene = preload("res://Game/Plant/Enemy/Bomb.tscn")
+const PlantDeathScene = preload("res://Game/Plant/PlantDeath.tscn")
 
 enum PlantState { SAPLING = 0, HARVESTABLE = 1 }
 
 enum PlantType { ZOMBIE = 0, POISON = 1, BOMB = 2 }
+
+var sapling_time: float
+var harvestable_time: float
 
 var state: PlantState = PlantState.SAPLING:
 	get:
@@ -35,10 +39,11 @@ var scene_for_type = {
 }
 
 
-func init(plant_type: PlantType):
+func init(plant_type: PlantType, sapling: float, harvestable: float):
 	type = plant_type
 	state = PlantState.SAPLING
-
+	sapling_time = sapling
+	harvestable_time = harvestable
 
 func _ready():
 	$LifecycleTimer.start(SAPLING_TIME)
@@ -57,6 +62,12 @@ func _on_lifecycle_timer_timeout():
 			get_parent().add_child(enemy)
 			queue_free()
 		
+func death():
+	var plant_death = PlantDeathScene.instantiate()
+	plant_death.global_position = global_position
+	get_parent().add_child.call_deferred(plant_death)
+	queue_free()
+	
 
 
 func cut():
@@ -64,5 +75,6 @@ func cut():
 		var harvestable = HarvestableScene.instantiate()
 		harvestable.global_position = global_position
 		get_parent().add_child.call_deferred(harvestable)
-
-	queue_free()
+		
+	death()
+	

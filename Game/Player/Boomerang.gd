@@ -19,8 +19,8 @@ var state: BoomerangState = BoomerangState.ON_PLAYER:
 		if new_state == BoomerangState.ON_PLAYER:
 			$CatchPlayer.play()
 		var should_monitor_cutting = new_state != BoomerangState.ON_PLAYER
-		$CuttingArea.monitorable = should_monitor_cutting
-		$CuttingArea.monitoring = should_monitor_cutting
+		$CuttingArea.set_deferred("monitorable", should_monitor_cutting)
+		$CuttingArea.set_deferred("monitoring", should_monitor_cutting)
 		
 		if new_state == BoomerangState.RETURNING:
 			$ThrowReturnTimer.stop()
@@ -121,7 +121,7 @@ func _on_cutting_area_body_entered(body):
 		body.cut()
 	
 	if body is Zombie:
-		body.queue_free()
+		body.delayed_death()
 		state = BoomerangState.RETURNING
 		
 	
@@ -135,3 +135,7 @@ func _on_body_entered(body):
 	print(body.name)
 	#if body.get_collision_layer_value(4):
 	$RicochetPlayer.play()
+
+
+func _on_return_timer_timeout():
+	pass # Replace with function body.

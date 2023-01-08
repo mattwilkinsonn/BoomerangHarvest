@@ -56,7 +56,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 
-func _process(delta):
+func _process(_delta):
 	if velocity.y < 0:
 		$AnimatedSprite2D.play("up")
 	elif velocity.y > 0:

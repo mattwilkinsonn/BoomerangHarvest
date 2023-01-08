@@ -1,11 +1,11 @@
 extends StaticBody2D
 
-@export var COLOR: Color = Color.PLUM
-@export var POISON_FIELD_COLOR: Color = Color.PURPLE
+@export var POISON_FIELD_COLOR: Color = Color.GREEN
 @export var LIFE_TIME = 10.0
 
+const PlantDeathScene = preload("res://Game/Plant/PlantDeath.tscn")
+
 func _draw():
-	draw_circle(Vector2.ZERO, $CollisionShape2D.shape.radius, COLOR)
 	draw_circle(Vector2.ZERO, $PoisonField/CollisionShape2D.shape.radius * 1.1, POISON_FIELD_COLOR)
 
 var player
@@ -15,8 +15,15 @@ func _ready():
 	$DeathTimer.start(LIFE_TIME)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
-func _on_death_timer_timeout():
+
+func death():
+	var plant_death = PlantDeathScene.instantiate()
+	plant_death.global_position = global_position
+	get_parent().add_child.call_deferred(plant_death)
 	queue_free()
+
+func _on_death_timer_timeout():
+	death()

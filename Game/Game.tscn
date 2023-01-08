@@ -249,6 +249,8 @@ position = Vector2(688, 766)
 [node name="SpawnPoint75" type="Node2D" parent="Spawns"]
 position = Vector2(794, 983)
 
+[node name="TotalTimer" type="Timer" parent="."]
+
 [connection signal="harvested_changed" from="Player" to="." method="_on_player_harvested_changed"]
 [connection signal="timeout" from="PlantSpawnTimer" to="." method="_on_plant_spawn_timer_timeout"]
 [connection signal="init_hud" from="GameHUD" to="." method="_on_game_hud_init_hud"]

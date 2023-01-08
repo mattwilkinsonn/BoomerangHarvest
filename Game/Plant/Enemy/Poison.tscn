@@ -1,18 +1,91 @@
-[gd_scene load_steps=4 format=3 uid="uid://frs4tk2mu257"]
+[gd_scene load_steps=22 format=3 uid="uid://frs4tk2mu257"]
 
 [ext_resource type="Script" path="res://Game/Plant/Enemy/Poison.gd" id="1_f5m30"]
+[ext_resource type="Texture2D" uid="uid://cyy2qbgqelcl7" path="res://Assets/2DArt/Animated_Sprites/poison.png" id="2_xh0nm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sy3gq"]
-radius = 20.0
+radius = 40.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xuga8"]
 radius = 200.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_455s5"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouvmw"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhnb4"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35hq4"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxs7p"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8i10"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceuhv"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e36h"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(1792, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdhgr"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdqbc"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkvy4"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rdo5"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxkpu"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(1024, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4cwg"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(1280, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cagj2"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(1536, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ivf3"]
+atlas = ExtResource("2_xh0nm")
+region = Rect2(1792, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_62miy"]
+animations = [{
+"frames": [SubResource("AtlasTexture_455s5"), SubResource("AtlasTexture_ouvmw"), SubResource("AtlasTexture_xhnb4"), SubResource("AtlasTexture_35hq4"), SubResource("AtlasTexture_wxs7p"), SubResource("AtlasTexture_b8i10"), SubResource("AtlasTexture_ceuhv"), SubResource("AtlasTexture_0e36h"), SubResource("AtlasTexture_bdhgr"), SubResource("AtlasTexture_gdqbc"), SubResource("AtlasTexture_pkvy4"), SubResource("AtlasTexture_7rdo5"), SubResource("AtlasTexture_wxkpu"), SubResource("AtlasTexture_r4cwg"), SubResource("AtlasTexture_cagj2"), SubResource("AtlasTexture_8ivf3")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Poison" type="StaticBody2D"]
 collision_layer = 12
 collision_mask = 99
 script = ExtResource("1_f5m30")
-POISON_FIELD_COLOR = Color(0.627451, 0.12549, 0.941176, 0.172549)
+POISON_FIELD_COLOR = Color(0.121569, 0.372549, 0.25098, 0.364706)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sy3gq")
@@ -24,5 +97,10 @@ collision_layer = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PoisonField"]
 shape = SubResource("CircleShape2D_xuga8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.33, 0.33)
+frames = SubResource("SpriteFrames_62miy")
+playing = true
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

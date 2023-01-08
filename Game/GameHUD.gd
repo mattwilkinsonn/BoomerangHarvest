@@ -14,12 +14,11 @@ func _process(_delta):
 
 
 func set_time_remaining(seconds: int):
-	var minutes = seconds / 60
-	var seconds_after = seconds % 60
 	$VBoxContainer/TimeRemaining.text = "Time Remaining " + seconds_to_output(seconds)
 	
 func seconds_to_output(seconds: int):
-	var minutes = seconds / 60
+	@warning_ignore(integer_division)
+	var minutes = int(seconds / 60)
 	var seconds_after = seconds % 60
 	
 	if minutes <= 0:

@@ -1,14 +1,102 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0v878j7nm3ix"]
+[gd_scene load_steps=25 format=3 uid="uid://b0v878j7nm3ix"]
+
+[ext_resource type="Script" path="res://Game/Plant/Enemy/Bomb.gd" id="1_0ots6"]
+[ext_resource type="Texture2D" uid="uid://dw10lu3orsago" path="res://Assets/2DArt/Animated_Sprites/bomb.png" id="1_p2e05"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m4lt6"]
-radius = 20.0
+radius = 40.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w8w0b"]
-radius = 21.0
+radius = 41.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoi6s"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs785"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqrmk"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuv0i"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtn0m"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvu84"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsn71"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m72md"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(1792, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fushj"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqve5"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq7lq"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi8kv"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q06hu"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(1024, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0aykw"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(1280, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0fkx"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(1536, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itxek"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(1792, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53ius"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjmmw"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7cew"]
+atlas = ExtResource("1_p2e05")
+region = Rect2(512, 512, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dg84b"]
+animations = [{
+"frames": [SubResource("AtlasTexture_eoi6s"), SubResource("AtlasTexture_fs785"), SubResource("AtlasTexture_oqrmk"), SubResource("AtlasTexture_wuv0i"), SubResource("AtlasTexture_gtn0m"), SubResource("AtlasTexture_yvu84"), SubResource("AtlasTexture_qsn71"), SubResource("AtlasTexture_m72md"), SubResource("AtlasTexture_fushj"), SubResource("AtlasTexture_sqve5"), SubResource("AtlasTexture_eq7lq"), SubResource("AtlasTexture_pi8kv"), SubResource("AtlasTexture_q06hu"), SubResource("AtlasTexture_0aykw"), SubResource("AtlasTexture_b0fkx"), SubResource("AtlasTexture_itxek"), SubResource("AtlasTexture_53ius"), SubResource("AtlasTexture_vjmmw"), SubResource("AtlasTexture_n7cew")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Bomb" type="StaticBody2D"]
 collision_layer = 12
 collision_mask = 99
+script = ExtResource("1_0ots6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_m4lt6")
@@ -22,5 +110,11 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayCollider"]
 shape = SubResource("CircleShape2D_w8w0b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -25)
+scale = Vector2(0.5, 0.5)
+frames = SubResource("SpriteFrames_dg84b")
+playing = true
 
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

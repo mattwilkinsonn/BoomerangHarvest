@@ -1,19 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccnofdbv2iku"]
+[gd_scene load_steps=4 format=3 uid="uid://ccnofdbv2iku"]
 
 [ext_resource type="Script" path="res://Game/Harvestable.gd" id="1_n8fqg"]
+[ext_resource type="Texture2D" uid="uid://rjvdvvv2apei" path="res://Assets/2DArt/Sprites/dead.png" id="2_vhjih"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0o3tj"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ywvaq"]
+radius = 60.0
 
 [node name="Harvestable" type="Area2D"]
 collision_layer = 16
 script = ExtResource("1_n8fqg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_0o3tj")
+shape = SubResource("CircleShape2D_ywvaq")
 
 [node name="DespawnTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -31)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vhjih")
 
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
