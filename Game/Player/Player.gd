@@ -1,11 +1,14 @@
 extends CharacterBody2D
+class_name Player
 
 @export var MOVEMENT_SPEED = 300.0
 @export var SLOWED_MOVEMENT_SPEED = 150.0
 @export var MAX_HEALTH = 100.0
-@export var BUMP_TIME = 0.1
-@export var BUMP_DISTANCE = 50.0
-@export var BUMP_TIMEOUT = 0.05
+@export var NUDGE_BUMP_TIME = 0.2
+@export var NUDGE_BUMP_DISTANCE = 100.0
+@export var EXPLOSION_BUMP_TIME = 0.2
+@export var EXPLOSION_BUMP_DISTANCE = 175.0
+@export var BUMP_TIMEOUT = 0.15
 
 const BoomerangScene = preload("res://Game/Player/Boomerang.tscn")
 const Plant = preload("res://Game/Plant/Plant.gd")
@@ -21,8 +24,16 @@ enum MovementState {
 }
 
 var movement_state: MovementState = MovementState.NORMAL
+
+enum BumpType {
+	NUDGE,
+	EXPLOSION
+}
+
 var bump_direction: Vector2
-var bump_magnitude: float = BUMP_DISTANCE / BUMP_TIME
+var bump_type: BumpType
+var nudge_bump_magnitude: float = NUDGE_BUMP_DISTANCE / NUDGE_BUMP_TIME
+var explosion_bump_magnitude: float = EXPLOSION_BUMP_DISTANCE / EXPLOSION_BUMP_TIME
 
 signal harvested_changed
 var harvested: int = 0:
@@ -65,6 +76,7 @@ func _process(delta):
 
 func set_movement(input_direction: Vector2):
 	if movement_state == MovementState.BUMPING:
+		var bump_magnitude = nudge_bump_magnitude if bump_type == BumpType.NUDGE else explosion_bump_magnitude
 		velocity = bump_direction * bump_magnitude
 		return
 	
@@ -110,14 +122,13 @@ func _on_gameplay_collider_area_entered(area: Area2D):
 		harvested += 1
 		area.queue_free()
 
-func bump(direction: Vector2):
+func bump(direction: Vector2, type: BumpType):
 	if not $BumpTimer.is_stopped():
 		return
 	bump_direction = direction
+	bump_type = type
 	movement_state = MovementState.BUMPING
-	$BumpTimer.start(BUMP_TIME)
-	
-
+	$BumpTimer.start(NUDGE_BUMP_TIME if bump_type == BumpType.NUDGE else EXPLOSION_BUMP_TIME)
 
 func _on_bump_timer_timeout():
 	if movement_state == MovementState.BUMPING:

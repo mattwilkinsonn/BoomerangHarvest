@@ -31,4 +31,4 @@ func _on_death_timer_timeout():
 
 func _on_gameplay_collider_area_entered(area):
 	if area.get_parent() == player:
-		player.bump(global_position.direction_to(player.global_position))
+		player.bump(global_position.direction_to(player.global_position), Player.BumpType.NUDGE)

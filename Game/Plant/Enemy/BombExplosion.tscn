@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://vsvyv03jgmv1"]
+
+[ext_resource type="Script" path="res://Game/Plant/Enemy/BombExplosion.gd" id="1_ma5ea"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s68li"]
+radius = 200.0
+
+[node name="BombExplosion" type="Area2D"]
+collision_layer = 64
+collision_mask = 53
+script = ExtResource("1_ma5ea")
+COLOR = Color(1, 0.647059, 0, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s68li")
+
+[node name="LifeTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

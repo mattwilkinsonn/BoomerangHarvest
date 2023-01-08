@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 
 @export var COLOR: Color = Color.PLUM
 @export var POISON_FIELD_COLOR: Color = Color.PURPLE

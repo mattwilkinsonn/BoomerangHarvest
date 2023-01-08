@@ -18,10 +18,16 @@ _global_script_classes=[{
 "class": &"Plant",
 "language": &"GDScript",
 "path": "res://Game/Plant/Plant.gd"
+}, {
+"base": "CharacterBody2D",
+"class": &"Player",
+"language": &"GDScript",
+"path": "res://Game/Player/Player.gd"
 }]
 _global_script_class_icons={
 "Boomerang": "",
-"Plant": ""
+"Plant": "",
+"Player": ""
 }
 
 [application]
@@ -73,7 +79,7 @@ Throw={
 2d_physics/layer_4="Walls/Obstacles"
 2d_physics/layer_5="Harvestable"
 2d_physics/layer_6="Zombie"
-2d_physics/layer_7="PoisonField"
+2d_physics/layer_7="EffectArea"
 
 [physics]
 

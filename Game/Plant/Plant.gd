@@ -7,7 +7,7 @@ class_name Plant
 const HarvestableScene = preload("res://Game/Harvestable.tscn")
 const ZombieScene = preload("res://Game/Plant/Enemy/Zombie.tscn")
 const PoisonScene = preload("res://Game/Plant/Enemy/Poison.tscn")
-const BombScene = preload("res://Game/Plant/Enemy/Zombie.tscn")
+const BombScene = preload("res://Game/Plant/Enemy/Bomb.tscn")
 
 enum PlantState { SAPLING = 0, HARVESTABLE = 1 }
 
