@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Game/GameHUD.gd" id="1_rpxam"]
 [ext_resource type="Texture2D" uid="uid://bng6xifykrpl6" path="res://Assets/2DArt/UI/Collected_thingy.png" id="2_psgwv"]
-[ext_resource type="Texture2D" uid="uid://dbj1aixg4jk5n" path="res://Assets/2DArt/UI/Timer_fond.png" id="3_6sbg5"]
+[ext_resource type="Texture2D" uid="uid://lna8calsj7ib" path="res://Assets/2DArt/UI/timer_bg.png" id="3_uxd77"]
 [ext_resource type="Texture2D" uid="uid://putlikallbi0" path="res://Assets/2DArt/UI/Timer_Slider.png" id="4_i57v0"]
 [ext_resource type="FontFile" uid="uid://cw64thohe7hjh" path="res://Assets/2DArt/UI/Zyzol-Wyd3n.otf" id="5_4wb8x"]
 
@@ -10,7 +10,7 @@
 script = ExtResource("1_rpxam")
 
 [node name="CollectedThingy" type="Sprite2D" parent="."]
-position = Vector2(1812, 979)
+position = Vector2(1802, 974)
 texture = ExtResource("2_psgwv")
 
 [node name="TimeBar" type="TextureProgressBar" parent="."]
@@ -19,7 +19,7 @@ offset_top = 28.0
 offset_right = 534.0
 offset_bottom = 139.0
 value = 100.0
-texture_under = ExtResource("3_6sbg5")
+texture_under = ExtResource("3_uxd77")
 texture_progress = ExtResource("4_i57v0")
 texture_progress_offset = Vector2(97.399, 27.34)
 

@@ -15,10 +15,10 @@
 script = ExtResource("1_shxwq")
 
 [node name="PlayAgain" type="Button" parent="."]
-offset_left = 806.0
-offset_top = 739.5
-offset_right = 1155.0
-offset_bottom = 971.5
+offset_left = 892.0
+offset_top = 701.0
+offset_right = 1241.0
+offset_bottom = 933.0
 size_flags_vertical = 10
 theme_override_font_sizes/font_size = 20
 icon = ExtResource("2_yl6my")
@@ -40,18 +40,18 @@ theme_override_font_sizes/font_size = 50
 text = "Walpurgis will reward YOU..."
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 876.0
-offset_top = 435.5
-offset_right = 1212.0
-offset_bottom = 635.5
+offset_left = 898.0
+offset_top = 463.0
+offset_right = 1234.0
+offset_bottom = 663.0
 texture = ExtResource("4_q7mhs")
 stretch_mode = 2
 
 [node name="Score" type="Label" parent="."]
 offset_left = 1002.0
-offset_top = 560.0
+offset_top = 572.0
 offset_right = 1031.0
-offset_bottom = 598.0
+offset_bottom = 610.0
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.533333, 0.121569, 0.054902, 1)
 theme_override_fonts/font = ExtResource("3_76fwu")
@@ -60,10 +60,11 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="GameOver" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.313726)
 offset_left = 792.0
-offset_top = 226.5
+offset_top = 231.5
 offset_right = 1128.0
-offset_bottom = 257.5
+offset_bottom = 262.5
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0.533333, 0.121569, 0.054902, 1)
 theme_override_fonts/font = ExtResource("5_eiewd")
@@ -89,8 +90,9 @@ position = Vector2(960, 449.5)
 texture = ExtResource("7_tyo8o")
 
 [node name="ColorBg" type="Sprite2D" parent="."]
+visible = false
 z_index = -5
-position = Vector2(960, 540)
+position = Vector2(974, 516)
 texture = ExtResource("8_uhghj")
 
 [connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]

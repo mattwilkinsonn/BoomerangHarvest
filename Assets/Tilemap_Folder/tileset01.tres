@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://btuebyaebywdb"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://btuebyaebywdb"]
 
 [ext_resource type="Texture2D" uid="uid://bgha200dkhvjv" path="res://Game/Tilemap_01.png" id="1_pfvdq"]
+[ext_resource type="Texture2D" uid="uid://dls88dfougxdf" path="res://Assets/2DArt/Sprites/Tilemap_01.png" id="2_f7n88"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a1n4g"]
 resource_name = "Tree01"
@@ -173,8 +174,18 @@ texture = ExtResource("1_pfvdq")
 46:61/0/physics_layer_0/angular_velocity = 0.0
 46:61/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.5, 97, -18.5, 88.5, -43.5, 80.5, -52, 66, -52.5, 36, -44, 1.5, -19.5, -15, -19.5, -41, -1, -46.5, 39, -41.5, 50.5, -28.5, 47.5, -13.5, 60, -8.5, 76.5, 6.5, 82.5, 66.5, 75.5, 80.5, 60, 88.5, 48.5, 90.5, 50, 101)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_431dw"]
+texture = ExtResource("2_f7n88")
+texture_region_size = Vector2i(25, 25)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xsrht"]
+resource_name = "Tree01"
+texture_region_size = Vector2i(25, 25)
+
 [resource]
 tile_size = Vector2i(25, 25)
 physics_layer_0/collision_layer = 8
 physics_layer_0/collision_mask = 63
 sources/0 = SubResource("TileSetAtlasSource_a1n4g")
+sources/4 = SubResource("TileSetAtlasSource_431dw")
+sources/5 = SubResource("TileSetAtlasSource_xsrht")
