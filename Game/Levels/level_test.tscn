@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bs4ghfkr4i0wn"]
+[gd_scene load_steps=26 format=3 uid="uid://bs4ghfkr4i0wn"]
 
 [ext_resource type="Texture2D" uid="uid://dlnql2wueeqoq" path="res://Assets/2DArt/Sprites/level_witch.jpg" id="1_uak3f"]
 [ext_resource type="Texture2D" uid="uid://cr4d43cdk2u1l" path="res://Assets/2DArt/Sprites/top_center_illu.png" id="3_bpqe3"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://e6udf10tmh28" path="res://Assets/2DArt/Texture/whitesquare.png" id="11_ord02"]
 [ext_resource type="Texture2D" uid="uid://d4fqnjvmejfs1" path="res://Assets/2DArt/Texture/square_light01.png" id="12_a105r"]
 [ext_resource type="Material" uid="uid://doq0kxxe8evni" path="res://Assets/2DArt/VFX/Explosion_VFX.tres" id="15_gmvkq"]
+[ext_resource type="Material" uid="uid://dawcp0x4g8v64" path="res://Assets/2DArt/VFX/Insect.tres" id="17_sfehr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lunpq"]
 texture = ExtResource("3_dmy6l")
@@ -248,6 +249,14 @@ color = Color(0.733333, 0.32549, 0.270588, 1)
 energy = 0.97
 texture = ExtResource("11_5onbr")
 
+[node name="Light_double4" type="PointLight2D" parent="Light"]
+position = Vector2(1742, 371)
+rotation = 1.61171
+scale = Vector2(0.708137, 0.677474)
+color = Color(0.733333, 0.32549, 0.270588, 1)
+energy = 0.97
+texture = ExtResource("11_5onbr")
+
 [node name="Light_double3" type="PointLight2D" parent="Light"]
 position = Vector2(255, 935)
 rotation = 1.03559
@@ -315,6 +324,14 @@ color = Color(0.623529, 0.27451, 0.109804, 1)
 energy = 0.84
 texture = ExtResource("7_kcnpb")
 
+[node name="PointLight2D12" type="PointLight2D" parent="Light/Candle"]
+position = Vector2(182, 394)
+rotation = -0.0767964
+scale = Vector2(0.787229, 0.769862)
+color = Color(0.568627, 0.313726, 0.207843, 1)
+energy = 2.65
+texture = ExtResource("7_kcnpb")
+
 [node name="PointLight2D17" type="PointLight2D" parent="Light/Candle"]
 position = Vector2(1074, 598)
 rotation = -0.0767964
@@ -340,6 +357,7 @@ energy = 0.45
 texture = ExtResource("7_kcnpb")
 
 [node name="PointLight2D20" type="PointLight2D" parent="Light/Candle"]
+visible = false
 position = Vector2(326, 939)
 rotation = 0.785945
 scale = Vector2(2.28078, 2.21776)
@@ -348,14 +366,15 @@ energy = 1.25
 texture = ExtResource("7_kcnpb")
 
 [node name="PointLight2D21" type="PointLight2D" parent="Light/Candle"]
-position = Vector2(1739, 860)
+position = Vector2(1633, 890)
 rotation = -0.0767964
-scale = Vector2(3.20485, 2.68066)
-color = Color(0.947663, 0.552098, 0.38285, 1)
+scale = Vector2(3.22885, 2.64067)
+color = Color(0.682353, 0.694118, 0.423529, 1)
 energy = 0.84
 texture = ExtResource("7_kcnpb")
 
 [node name="PointLight2D22" type="PointLight2D" parent="Light/Candle"]
+visible = false
 position = Vector2(1808, 695)
 rotation = -0.0767964
 scale = Vector2(3.20485, 2.68066)
@@ -419,3 +438,61 @@ scale = Vector2(0.33, 0.33)
 tile_set = ExtResource("7_3mte6")
 format = 2
 layer_0/tile_data = PackedInt32Array(2818100, 4063232, 46, 2752549, 4063232, 65, 3342546, 4063232, 65, 2752723, 4063232, 65, 6881298, 7208960, 2, 6094982, 4063232, 65, 5111957, 4063232, 65, 3735687, 4063232, 65, 3997811, 4063232, 65, 5374061, 4063232, 65, 5636205, 7405568, 69)
+
+[node name="Insect" type="CanvasGroup" parent="."]
+visible = false
+
+[node name="Insect_Particles" type="GPUParticles2D" parent="Insect"]
+position = Vector2(330, 827)
+process_material = ExtResource("17_sfehr")
+texture = ExtResource("11_ord02")
+
+[node name="Insect_Particles2" type="GPUParticles2D" parent="Insect"]
+position = Vector2(807, 859)
+process_material = ExtResource("17_sfehr")
+texture = ExtResource("11_ord02")
+
+[node name="Insect_Particles5" type="GPUParticles2D" parent="Insect"]
+position = Vector2(477, 317)
+process_material = ExtResource("17_sfehr")
+texture = ExtResource("11_ord02")
+
+[node name="Insect_Particles6" type="GPUParticles2D" parent="Insect"]
+position = Vector2(256, 316)
+process_material = ExtResource("17_sfehr")
+texture = ExtResource("11_ord02")
+
+[node name="Insect_Particles7" type="GPUParticles2D" parent="Insect"]
+position = Vector2(181, 396)
+process_material = ExtResource("17_sfehr")
+texture = ExtResource("11_ord02")
+
+[node name="Insect_Particles8" type="GPUParticles2D" parent="Insect"]
+position = Vector2(1266, 364)
+process_material = ExtResource("17_sfehr")
+texture = ExtResource("11_ord02")
+
+[node name="Insect_Particles9" type="GPUParticles2D" parent="Insect"]
+position = Vector2(1736, 838)
+process_material = ExtResource("17_sfehr")
+texture = ExtResource("11_ord02")
+
+[node name="Insect_Particles10" type="GPUParticles2D" parent="Insect"]
+position = Vector2(1732, 405)
+process_material = ExtResource("17_sfehr")
+texture = ExtResource("11_ord02")
+
+[node name="Insect_Particles11" type="GPUParticles2D" parent="Insect"]
+position = Vector2(1737, 330)
+process_material = ExtResource("17_sfehr")
+texture = ExtResource("11_ord02")
+
+[node name="Insect_Particles3" type="GPUParticles2D" parent="Insect"]
+position = Vector2(294, 999)
+process_material = ExtResource("17_sfehr")
+texture = ExtResource("11_ord02")
+
+[node name="Insect_Particles4" type="GPUParticles2D" parent="Insect"]
+position = Vector2(197, 864)
+process_material = ExtResource("17_sfehr")
+texture = ExtResource("11_ord02")

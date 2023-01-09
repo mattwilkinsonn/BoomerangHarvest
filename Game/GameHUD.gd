@@ -13,8 +13,13 @@ func _process(_delta):
 	pass
 
 
-func set_time_remaining(seconds: int):
-	$VBoxContainer/TimeRemaining.text = "Time Remaining " + seconds_to_output(seconds)
+func init(max_time: int):
+	$TimeBar.max_value = max_time
+	$TimeBar.value = max_time
+
+func set_time_remaining(seconds: float):
+	$TimeBar.value = seconds
+	#$VBoxContainer/TimeRemaining.text = "Time Remaining " + seconds_to_output(seconds)
 	
 func seconds_to_output(seconds: int):
 	@warning_ignore(integer_division)
@@ -33,4 +38,4 @@ func seconds_to_output(seconds: int):
 
 
 func set_harvest_indicator(harvested: int):
-	$VBoxContainer/Harvested.text = "Harvested " + str(harvested)
+	$Score.text = str(harvested)

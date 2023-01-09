@@ -48,7 +48,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	$GameHUD.set_time_remaining(int($TotalTimer.time_left))
+	$GameHUD.set_time_remaining($TotalTimer.time_left)
 
 
 func generate_plant_type() -> int:
@@ -89,6 +89,7 @@ func _on_player_harvested_changed(harvested: int):
 
 
 func _on_game_hud_init_hud():
+	$GameHUD.init(total_time())
 	pass
 
 
