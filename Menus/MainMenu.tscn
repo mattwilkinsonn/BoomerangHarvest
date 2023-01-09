@@ -29,7 +29,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
+offset_top = 207.0
+offset_right = 144.0
+offset_bottom = 351.0
 size_flags_vertical = 10
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 30
