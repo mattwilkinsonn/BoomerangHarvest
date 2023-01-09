@@ -12,14 +12,14 @@ var total_score
 func _ready():
 	current_menu = MainMenuScene.instantiate()
 	current_menu.play.connect(_on_play)
-	add_child(current_menu)
+	add_child.call_deferred(current_menu)
 	
 func _on_play():
 	current_menu.queue_free()
 	current_menu = null
 	game = GameScene.instantiate()
 	game.game_over.connect(_on_game_over)
-	add_child(game)
+	add_child.call_deferred(game)
 	
 func _on_game_over(score):
 	total_score = int(score)
@@ -29,7 +29,7 @@ func _on_game_over(score):
 	current_menu = GameOverMenuScene.instantiate()
 	current_menu.init_menu.connect(init_gameover_menu)
 	current_menu.play_again.connect(_on_play)
-	add_child(current_menu)
+	add_child.call_deferred(current_menu)
 
 func init_gameover_menu():
 	current_menu.init(total_score)

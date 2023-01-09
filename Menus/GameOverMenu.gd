@@ -34,23 +34,25 @@ func init(player_score: int):
 	$Macbeth.text = get_line()
 	play_fx()
 
-func get_line() -> String:
-	match score_state:
-		ScoreState.BAD:
-			return BAD_LINE
-		ScoreState.AVERAGE:
-			return AVERAGE_LINE
-		ScoreState.GOOD, _:
-			return GOOD_LINE
+func get_line():
+	if score_state == ScoreState.BAD:
+		return BAD_LINE
+	
+	if score_state == ScoreState.AVERAGE:
+		return AVERAGE_LINE
+		
+	if score_state == ScoreState.GOOD:
+		return GOOD_LINE
 			
 func play_fx():
-	match score_state:
-		ScoreState.BAD:
-			$BadPlayer.play()
-		ScoreState.AVERAGE:
-			$AveragePlayer.play()
-		ScoreState.GOOD:
-			$GoodPlayer.play()
+	if score_state == ScoreState.BAD:
+		$BadPlayer.play()
+	
+	if score_state == ScoreState.AVERAGE:
+		$AveragePlayer.play()
+		
+	if score_state == ScoreState.GOOD:
+		$GoodPlayer.play()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
