@@ -1,0 +1,30 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://dawcp0x4g8v64"]
+
+[resource]
+lifetime_randomness = 1.0
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 5.0
+emission_ring_inner_radius = 5.0
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(2, 100, 0)
+angular_velocity_min = 10.0
+angular_velocity_max = 10.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.3
+tangential_accel_min = -50.0
+tangential_accel_max = -50.0
+scale_min = 0.1
+scale_max = 0.3
+color = Color(0.960784, 0.956863, 0.933333, 1)
+turbulence_enabled = true
+turbulence_noise_strength = 4.65
+turbulence_noise_scale = 9.82
+turbulence_noise_speed = Vector3(0.5, 2, 0.5)
+turbulence_noise_speed_random = 10.0
+turbulence_influence_min = 1.0
+turbulence_influence_max = 1.0
+turbulence_initial_displacement_min = 7.4
+turbulence_initial_displacement_max = 66.7
