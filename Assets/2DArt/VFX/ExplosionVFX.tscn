@@ -1,10 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmlvqvndu7w6q"]
+[gd_scene load_steps=7 format=3 uid="uid://bmlvqvndu7w6q"]
 
-[ext_resource type="Texture2D" uid="uid://bupwa2a8a2w8r" path="res://Assets/2DArt/Texture/cookie_light.png" id="2_2hlow"]
+[ext_resource type="Texture2D" uid="uid://d4fqnjvmejfs1" path="res://Assets/2DArt/Texture/square_light01.png" id="1_3vw0p"]
 
-[sub_resource type="Curve" id="Curve_df0dv"]
-max_value = 100.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 19.0909), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_kdwvn"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 65.4545), 0.0, 0.0, 0, 0, Vector2(0.990244, -58.1818), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_v0xsx"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(1, -192.727), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_tw5xo"]
@@ -12,28 +19,38 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_o0weo"]
-offsets = PackedFloat32Array(0, 0.276471, 0.841176, 0.994118, 1)
-colors = PackedColorArray(0.950448, 0.69053, 0.408648, 0, 0.568627, 0.239216, 0.141176, 1, 0.388872, 0.159322, 0.145993, 1, 0.783259, 0.715909, 0.60485, 0.905882, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.78022, 0.906593, 0.994505)
+colors = PackedColorArray(0.336901, 0.021287, 0.0280078, 1, 0.560016, 0.123361, 0.126843, 1, 0.510812, 0.140526, 0.160479, 0.911047, 0.568627, 0.0705882, 0.0941176, 0)
+
+[sub_resource type="Curve" id="Curve_i1eey"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="ExplosionVFX" type="CPUParticles2D"]
 scale = Vector2(1.87611, 1.87611)
-emitting = false
-amount = 20
-lifetime = 2.0
-one_shot = true
-speed_scale = 4.0
+amount = 100
+lifetime = 2.5
+speed_scale = 2.0
 explosiveness = 1.0
+lifetime_randomness = 0.41
 fixed_fps = 30
 draw_order = 1
-texture = ExtResource("2_2hlow")
+texture = ExtResource("1_3vw0p")
+direction = Vector2(1, 1)
 spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 75.0
-initial_velocity_max = 80.0
-damping_max = 50.0
-damping_curve = SubResource("Curve_df0dv")
+gravity = Vector2(0, 20)
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+linear_accel_max = 5.0
+linear_accel_curve = SubResource("Curve_kdwvn")
+radial_accel_min = 27.59
+radial_accel_max = 100.0
+tangential_accel_curve = SubResource("Curve_v0xsx")
 scale_amount_min = 0.05
 scale_amount_max = 0.2
 scale_amount_curve = SubResource("Curve_tw5xo")
 color = Color(0.92549, 0.92549, 0.92549, 1)
 color_ramp = SubResource("Gradient_o0weo")
+hue_variation_max = 0.1
+hue_variation_curve = SubResource("Curve_i1eey")
