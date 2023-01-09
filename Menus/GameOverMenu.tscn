@@ -91,9 +91,8 @@ position = Vector2(960, 449.5)
 texture = ExtResource("7_tyo8o")
 
 [node name="ColorBg" type="Sprite2D" parent="."]
-visible = false
 z_index = -5
-position = Vector2(974, 516)
 texture = ExtResource("8_uhghj")
+centered = false
 
 [connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]
