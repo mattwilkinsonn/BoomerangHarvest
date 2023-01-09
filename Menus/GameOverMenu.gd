@@ -2,11 +2,11 @@ extends CanvasLayer
 
 signal play_again
 
-@export var GOOD_LINE = "Walpurgis will reward YOU..."
-@export var GOOD_AMOUNT = 25
-@export var AVERAGE_LINE = "Walpurgis is satisfied"
-@export var AVERAGE_AMOUNT = 10
-@export var BAD_LINE = "Walpurgis is not happy"
+@export var GOOD_LINE = "... Fire burn and cauldron bubble!"
+@export var GOOD_AMOUNT = 40
+@export var AVERAGE_LINE = "Double, double toil and trouble..."
+@export var AVERAGE_AMOUNT = 20
+@export var BAD_LINE = "No potions tonight..."
 
 
 var score: int = 0:
@@ -30,7 +30,7 @@ var score_state: ScoreState
 func init(player_score: int):
 	score = player_score
 	$Score.text = str(score)
-	$Walpurgis.text = get_line()
+	$Macbeth.text = get_line()
 	
 	play_fx()
 

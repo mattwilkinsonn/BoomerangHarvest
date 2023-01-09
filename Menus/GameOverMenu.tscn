@@ -24,20 +24,21 @@ theme_override_font_sizes/font_size = 20
 icon = ExtResource("2_yl6my")
 flat = true
 
-[node name="Walpurgis" type="Label" parent="."]
+[node name="Macbeth" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -352.5
-offset_top = 313.5
-offset_right = 352.5
-offset_bottom = 386.5
+offset_left = -408.0
+offset_top = 314.0
+offset_right = 415.0
+offset_bottom = 387.0
 grow_horizontal = 2
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.533333, 0.121569, 0.054902, 1)
 theme_override_fonts/font = ExtResource("3_76fwu")
 theme_override_font_sizes/font_size = 50
-text = "Walpurgis will reward YOU..."
+text = "... Fire burn and cauldron bubble!"
+horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 898.0

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_p42l8"]
 [ext_resource type="Texture2D" uid="uid://bxod6wl5hso4w" path="res://Assets/2DArt/UI/play_button.png" id="2_47y6r"]
-[ext_resource type="Texture2D" uid="uid://ctuyckyh7rmjf" path="res://Assets/2DArt/UI/Title.png" id="2_e3av5"]
+[ext_resource type="Texture2D" uid="uid://ctuyckyh7rmjf" path="res://Assets/2DArt/UI/title.png" id="2_ks7v5"]
 [ext_resource type="Texture2D" uid="uid://1ukp5yuhe4er" path="res://Assets/2DArt/UI/Color_BG.png" id="6_qar54"]
 
 [node name="MainMenu" type="Node2D"]
@@ -10,9 +10,9 @@ script = ExtResource("1_p42l8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Title" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(960, 440)
-texture = ExtResource("2_e3av5")
+[node name="Title2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(964, 410)
+texture = ExtResource("2_ks7v5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
@@ -20,10 +20,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -232.5
-offset_top = -89.0
-offset_right = 232.5
-offset_bottom = 261.0
+offset_left = -71.0
+offset_top = -78.0
+offset_right = 73.0
+offset_bottom = 273.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -39,6 +39,7 @@ icon_alignment = 1
 [node name="ColorBg" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("6_qar54")
+metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 autoplay = true
