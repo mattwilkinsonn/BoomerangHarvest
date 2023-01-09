@@ -6,6 +6,7 @@ const GameScene = preload("res://Game/Game.tscn")
 
 var current_menu
 var game
+var total_score
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,12 +21,18 @@ func _on_play():
 	game.game_over.connect(_on_game_over)
 	add_child(game)
 	
-func _on_game_over(score: int):
+func _on_game_over(score):
+	total_score = int(score)
+	if total_score == 0:
+		total_score = get_node("Game/Player.harvested")
 	game.queue_free()
 	current_menu = GameOverMenuScene.instantiate()
+	current_menu.init_menu.connect(init_gameover_menu)
 	current_menu.play_again.connect(_on_play)
 	add_child(current_menu)
-	current_menu.init(score)	
+
+func init_gameover_menu():
+	current_menu.init(total_score)
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

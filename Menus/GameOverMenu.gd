@@ -8,6 +8,7 @@ signal play_again
 @export var AVERAGE_AMOUNT = 20
 @export var BAD_LINE = "No potions tonight..."
 
+signal init_menu
 
 var score: int = 0:
 	get:
@@ -53,7 +54,7 @@ func play_fx():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	emit_signal("init_menu")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

@@ -300,7 +300,7 @@ bus = &"SFX"
 
 [node name="BumpPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_d5d06")
-volume_db = -10.0
+volume_db = -7.0
 bus = &"SFX"
 
 [connection signal="area_entered" from="GameplayCollider" to="." method="_on_gameplay_collider_area_entered"]
