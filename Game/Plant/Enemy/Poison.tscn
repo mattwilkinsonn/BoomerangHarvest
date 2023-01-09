@@ -108,7 +108,7 @@ playing = true
 
 [node name="PoisonPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_grpqu")
-volume_db = -20.0
+volume_db = -30.0
 autoplay = true
 bus = &"SFX"
 

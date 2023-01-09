@@ -21,6 +21,7 @@ one_shot = true
 
 [node name="ExplosionPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_o0xbh")
+volume_db = -5.0
 
 [node name="ExplosionVFX" parent="." instance=ExtResource("3_4revp")]
 
