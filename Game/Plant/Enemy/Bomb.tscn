@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Game/Plant/Enemy/Bomb.gd" id="1_nvec7"]
 [ext_resource type="Texture2D" uid="uid://dw10lu3orsago" path="res://Assets/2DArt/Animated_Sprites/bomb.png" id="1_p2e05"]
-[ext_resource type="AudioStream" uid="uid://c2in6stxb2flk" path="res://Assets/Sfx/Plant/Plant_turnbad.wav" id="2_bw1nv"]
+[ext_resource type="AudioStream" uid="uid://daxx85c4a0b58" path="res://Assets/Sfx/Plant/plant_turntobomb2.wav" id="3_kvave"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oaehy"]
 radius = 40.0
@@ -119,7 +119,8 @@ frames = SubResource("SpriteFrames_lly0j")
 playing = true
 
 [node name="TurnBadPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_bw1nv")
+stream = ExtResource("3_kvave")
+volume_db = -8.0
 autoplay = true
 bus = &"SFX"
 

@@ -7,16 +7,16 @@
 [ext_resource type="AudioStream" uid="uid://cpvn4tplrshyo" path="res://Assets/Sfx/Player/boo_fly.wav" id="5_vi664"]
 [ext_resource type="AudioStream" uid="uid://bwq0cyx2n1cvb" path="res://Assets/Sfx/Player/boo_ricochet.wav" id="6_r4onr"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wxmbj"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r2j2r"]
 bounce = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d20yf"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_a0ese"]
 radius = 22.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_a3egx"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hbqj6"]
 radius = 30.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ce3w"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8bct"]
 radius = 22.0
 height = 50.0
 
@@ -24,7 +24,7 @@ height = 50.0
 collision_layer = 2
 collision_mask = 1064
 inertia = 1.0
-physics_material_override = SubResource("PhysicsMaterial_wxmbj")
+physics_material_override = SubResource("PhysicsMaterial_r2j2r")
 max_contacts_reported = 5
 contact_monitor = true
 freeze = true
@@ -33,14 +33,14 @@ THROW_FORCE = 1000.0
 MAX_VELOCITY = 700.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_d20yf")
+shape = SubResource("CircleShape2D_a0ese")
 debug_color = Color(0.796078, 0.415686, 0.219608, 0.419608)
 
 [node name="PickupArea" type="Area2D" parent="."]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
-shape = SubResource("CircleShape2D_a3egx")
+shape = SubResource("CircleShape2D_hbqj6")
 debug_color = Color(0.145098, 0.615686, 0.537255, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -55,18 +55,18 @@ collision_mask = 164
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CuttingArea"]
 position = Vector2(0, -1.5)
-shape = SubResource("CapsuleShape2D_8ce3w")
+shape = SubResource("CapsuleShape2D_i8bct")
 
 [node name="ThrowReturnTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="ThrowPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_f1m1h")
-volume_db = 1.0
+volume_db = -8.0
 
 [node name="CatchPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_p2coc")
-volume_db = 2.0
+volume_db = -5.0
 
 [node name="ReturnPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_vi664")
@@ -74,6 +74,8 @@ volume_db = 10.0
 
 [node name="RicochetPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_r4onr")
+volume_db = -10.0
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="CuttingArea" to="." method="_on_cutting_area_body_entered"]
 [connection signal="timeout" from="ThrowReturnTimer" to="." method="_on_return_timer_timeout"]

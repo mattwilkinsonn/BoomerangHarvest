@@ -2,85 +2,85 @@
 
 [ext_resource type="Script" path="res://Game/Plant/Enemy/Zombie.gd" id="1_ixnr2"]
 [ext_resource type="Texture2D" uid="uid://d05ta2rmxqwrf" path="res://Assets/2DArt/Animated_Sprites/zombie.png" id="2_n2y0v"]
-[ext_resource type="AudioStream" uid="uid://dyfnpstqs2ln1" path="res://Assets/Sfx/Plant/Plant_startmoving.wav" id="3_ypec4"]
+[ext_resource type="AudioStream" uid="uid://ufff6sljolh2" path="res://Assets/Sfx/Plant/zombie.wav" id="3_s23hx"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tg4cl"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_d643n"]
 radius = 40.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wghd8"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_v2tnp"]
 radius = 42.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q7j68"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nelpe"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lk1f1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi8ay"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(256, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4i7yg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gwje"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(512, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tdhw5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljeqt"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(768, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8mu1k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w71ms"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(1024, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4l62h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_363xf"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(1280, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dorem"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ig8k"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(1536, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2r8gt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8ttj"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(1792, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_la6ri"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_naq6b"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(0, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fccf0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvvfl"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(256, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i14ec"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh5c7"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(512, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wlx8q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxf63"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(768, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lnfei"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgggb"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(1024, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fvxoi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a73s7"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(1280, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s8sy7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2qq2"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(1536, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b3f1l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ys0l"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(1792, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n8apj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmmyc"]
 atlas = ExtResource("2_n2y0v")
 region = Rect2(0, 512, 256, 256)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_m2iaq"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_utynh"]
 animations = [{
-"frames": [SubResource("AtlasTexture_q7j68"), SubResource("AtlasTexture_lk1f1"), SubResource("AtlasTexture_4i7yg"), SubResource("AtlasTexture_tdhw5"), SubResource("AtlasTexture_8mu1k"), SubResource("AtlasTexture_4l62h"), SubResource("AtlasTexture_dorem"), SubResource("AtlasTexture_2r8gt"), SubResource("AtlasTexture_la6ri"), SubResource("AtlasTexture_fccf0"), SubResource("AtlasTexture_i14ec"), SubResource("AtlasTexture_wlx8q"), SubResource("AtlasTexture_lnfei"), SubResource("AtlasTexture_fvxoi"), SubResource("AtlasTexture_s8sy7"), SubResource("AtlasTexture_b3f1l"), SubResource("AtlasTexture_n8apj")],
+"frames": [SubResource("AtlasTexture_nelpe"), SubResource("AtlasTexture_mi8ay"), SubResource("AtlasTexture_3gwje"), SubResource("AtlasTexture_ljeqt"), SubResource("AtlasTexture_w71ms"), SubResource("AtlasTexture_363xf"), SubResource("AtlasTexture_1ig8k"), SubResource("AtlasTexture_w8ttj"), SubResource("AtlasTexture_naq6b"), SubResource("AtlasTexture_rvvfl"), SubResource("AtlasTexture_wh5c7"), SubResource("AtlasTexture_bxf63"), SubResource("AtlasTexture_hgggb"), SubResource("AtlasTexture_a73s7"), SubResource("AtlasTexture_x2qq2"), SubResource("AtlasTexture_6ys0l"), SubResource("AtlasTexture_hmmyc")],
 "loop": true,
 "name": &"default",
 "speed": 5.0
@@ -95,7 +95,7 @@ MOVEMENT_SPEED = 200.0
 LIFE_TIME = 15.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_tg4cl")
+shape = SubResource("CircleShape2D_d643n")
 
 [node name="DeathTimer" type="Timer" parent="."]
 autostart = true
@@ -105,16 +105,16 @@ collision_layer = 32
 collision_mask = 65
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayCollider"]
-shape = SubResource("CircleShape2D_wghd8")
+shape = SubResource("CircleShape2D_v2tnp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-5, -24)
 scale = Vector2(0.5, 0.5)
-frames = SubResource("SpriteFrames_m2iaq")
+frames = SubResource("SpriteFrames_utynh")
 playing = true
 
 [node name="StartMovingPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_ypec4")
+stream = ExtResource("3_s23hx")
 autoplay = true
 bus = &"SFX"
 
