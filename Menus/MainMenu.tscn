@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://bun0vfeglc4tr" path="res://Assets/2DArt/UI/HamsukePersonalUse-X3n4a.otf" id="4_3b2ip"]
 [ext_resource type="Texture2D" uid="uid://1ukp5yuhe4er" path="res://Assets/2DArt/UI/Color_BG.png" id="6_qar54"]
 
-[sub_resource type="Theme" id="Theme_6taj6"]
+[sub_resource type="Theme" id="Theme_w0dpk"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_p42l8")
@@ -49,18 +49,18 @@ grow_vertical = 2
 
 [node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer"]
 modulate = Color(0.270588, 0.133333, 0.133333, 1)
-offset_top = 36.0
+offset_top = 37.0
 offset_right = 465.0
-offset_bottom = 135.0
+offset_bottom = 136.0
 size_flags_vertical = 6
-theme = SubResource("Theme_6taj6")
+theme = SubResource("Theme_w0dpk")
 theme_override_fonts/font = ExtResource("4_3b2ip")
 theme_override_font_sizes/font_size = 100
 text = "PRess Start"
 horizontal_alignment = 1
 
 [node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer"]
-offset_top = 176.0
+offset_top = 206.0
 offset_right = 465.0
 offset_bottom = 350.0
 size_flags_vertical = 10
