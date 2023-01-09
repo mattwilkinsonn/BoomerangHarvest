@@ -159,7 +159,7 @@ one_shot = true
 
 [node name="GrowPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_c4e53")
-volume_db = -14.0
+volume_db = -18.0
 bus = &"SFX"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -169,7 +169,7 @@ animation = &"harvestable"
 
 [node name="SpawnPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_5emic")
-volume_db = -20.0
+volume_db = -25.0
 autoplay = true
 bus = &"SFX"
 
