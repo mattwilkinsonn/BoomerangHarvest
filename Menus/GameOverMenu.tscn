@@ -8,13 +8,11 @@
 [ext_resource type="FontFile" uid="uid://da1x4mhyancoi" path="res://Assets/2DArt/UI/ZyzolRound-2OVmd.otf" id="5_eiewd"]
 [ext_resource type="Texture2D" uid="uid://y4tjvbj6wtnl" path="res://Assets/2DArt/UI/Fond.png" id="7_tyo8o"]
 [ext_resource type="Texture2D" uid="uid://1ukp5yuhe4er" path="res://Assets/2DArt/UI/Color_BG.png" id="8_uhghj"]
-
-[sub_resource type="Theme" id="Theme_tqcdp"]
-
-[ext_resource type="Script" path="res://Menus/GameOverMenu.gd" id="1_shxwq"]
 [ext_resource type="AudioStream" uid="uid://dguqlh4x6snac" path="res://Assets/Sfx/GameOver/highscore_great.wav" id="2_x4xpn"]
 [ext_resource type="AudioStream" uid="uid://te0freu3nfug" path="res://Assets/Sfx/GameOver/highscore_average.wav" id="3_et5a4"]
 [ext_resource type="AudioStream" uid="uid://wy8v3ag5dgqg" path="res://Assets/Sfx/GameOver/highscore.wav" id="4_xijm1"]
+
+[sub_resource type="Theme" id="Theme_tqcdp"]
 
 [node name="GameOverMenu" type="CanvasLayer"]
 script = ExtResource("1_shxwq")
