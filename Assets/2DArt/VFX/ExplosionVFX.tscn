@@ -1,19 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmlvqvndu7w6q"]
+[gd_scene load_steps=5 format=3 uid="uid://bmlvqvndu7w6q"]
 
-[ext_resource type="Material" uid="uid://doq0kxxe8evni" path="res://Assets/2DArt/VFX/Explosion_VFX.tres" id="1_65y54"]
 [ext_resource type="Texture2D" uid="uid://bupwa2a8a2w8r" path="res://Assets/2DArt/Texture/cookie_light.png" id="2_2hlow"]
 
-[node name="ExplosionVFX" type="GPUParticles2D"]
+[sub_resource type="Curve" id="Curve_df0dv"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 19.0909), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_tw5xo"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_o0weo"]
+offsets = PackedFloat32Array(0, 0.276471, 0.841176, 0.994118, 1)
+colors = PackedColorArray(0.950448, 0.69053, 0.408648, 0, 0.568627, 0.239216, 0.141176, 1, 0.388872, 0.159322, 0.145993, 1, 0.783259, 0.715909, 0.60485, 0.905882, 1, 1, 1, 1)
+
+[node name="ExplosionVFX" type="CPUParticles2D"]
 scale = Vector2(1.87611, 1.87611)
 emitting = false
 amount = 20
-process_material = ExtResource("1_65y54")
-texture = ExtResource("2_2hlow")
 lifetime = 2.0
 one_shot = true
 speed_scale = 4.0
 explosiveness = 1.0
-trail_enabled = true
-trail_lifetime = 0.01
-trail_sections = 6
-trail_section_subdivisions = 1
+fixed_fps = 30
+draw_order = 1
+texture = ExtResource("2_2hlow")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 75.0
+initial_velocity_max = 80.0
+damping_max = 50.0
+damping_curve = SubResource("Curve_df0dv")
+scale_amount_min = 0.05
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_tw5xo")
+color = Color(0.92549, 0.92549, 0.92549, 1)
+color_ramp = SubResource("Gradient_o0weo")
