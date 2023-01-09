@@ -78,7 +78,7 @@ func spawn_plants():
 		plant.init(plant_type, config.sapling_time, config.harvestable_time)
 		var spawn_point = get_spawn_point()
 		plant.global_position = spawn_point.global_position
-		add_child(plant)
+		$NavigationRegion2D.add_child(plant)
 
 func _on_plant_spawn_timer_timeout():
 	spawn_plants()

@@ -11,7 +11,7 @@ func _draw():
 var player
 
 func _ready():
-	player = get_node("../Player")
+	player = get_node("../../Player")
 	$DeathTimer.start(LIFE_TIME)
 	$PoisonVFX/PoisonCloud.emitting = true
 
