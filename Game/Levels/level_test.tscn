@@ -216,7 +216,7 @@ layer_0/tile_data = PackedInt32Array(5046283, 262144, 2, 5439499, 327680, 2, 393
 [node name="CanvasModulate" type="CanvasModulate" parent="Light"]
 position = Vector2(507, 325)
 scale = Vector2(1.64844, 1.51953)
-color = Color(0.513726, 0.4, 0.603922, 1)
+color = Color(0.231373, 0.219608, 0.407843, 1)
 
 [node name="vignette" type="PointLight2D" parent="Light"]
 position = Vector2(955, 585)

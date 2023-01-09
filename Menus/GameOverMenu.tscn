@@ -1,4 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://drukpci5wde6r"]
+[gd_scene load_steps=10 format=3 uid="uid://drukpci5wde6r"]
+
+[ext_resource type="Script" path="res://Menus/GameOverMenu.gd" id="1_shxwq"]
+[ext_resource type="AudioStream" uid="uid://gnl4wr7oufa4" path="res://Assets/Sfx/highscore.wav" id="2_1x70s"]
+[ext_resource type="Texture2D" uid="uid://du01lcvgff2hd" path="res://Assets/2DArt/UI/replay_button.png" id="2_yl6my"]
+[ext_resource type="FontFile" uid="uid://cw64thohe7hjh" path="res://Assets/2DArt/UI/Zyzol-Wyd3n.otf" id="3_76fwu"]
+[ext_resource type="Texture2D" uid="uid://bng6xifykrpl6" path="res://Assets/2DArt/UI/Collected_thingy.png" id="4_q7mhs"]
+[ext_resource type="FontFile" uid="uid://da1x4mhyancoi" path="res://Assets/2DArt/UI/ZyzolRound-2OVmd.otf" id="5_eiewd"]
+[ext_resource type="Texture2D" uid="uid://y4tjvbj6wtnl" path="res://Assets/2DArt/UI/Fond.png" id="7_tyo8o"]
+[ext_resource type="Texture2D" uid="uid://1ukp5yuhe4er" path="res://Assets/2DArt/UI/Color_BG.png" id="8_uhghj"]
+
+[sub_resource type="Theme" id="Theme_tqcdp"]
 
 [ext_resource type="Script" path="res://Menus/GameOverMenu.gd" id="1_shxwq"]
 [ext_resource type="AudioStream" uid="uid://dguqlh4x6snac" path="res://Assets/Sfx/GameOver/highscore_great.wav" id="2_x4xpn"]
@@ -8,6 +19,51 @@
 [node name="GameOverMenu" type="CanvasLayer"]
 script = ExtResource("1_shxwq")
 
+[node name="PlayAgain" type="Button" parent="."]
+offset_left = 806.0
+offset_top = 739.5
+offset_right = 1155.0
+offset_bottom = 971.5
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 20
+icon = ExtResource("2_yl6my")
+flat = true
+
+[node name="Walpurgis" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -352.5
+offset_top = 313.5
+offset_right = 352.5
+offset_bottom = 386.5
+grow_horizontal = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.533333, 0.121569, 0.054902, 1)
+theme_override_fonts/font = ExtResource("3_76fwu")
+theme_override_font_sizes/font_size = 50
+text = "Walpurgis will reward YOU..."
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 876.0
+offset_top = 435.5
+offset_right = 1212.0
+offset_bottom = 635.5
+texture = ExtResource("4_q7mhs")
+stretch_mode = 2
+
+[node name="Score" type="Label" parent="."]
+offset_left = 792.0
+offset_top = 616.5
+offset_right = 1128.0
+offset_bottom = 654.5
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.533333, 0.121569, 0.054902, 1)
+theme_override_fonts/font = ExtResource("3_76fwu")
+theme_override_font_sizes/font_size = 25
+text = "Score: 0"
+horizontal_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -15,9 +71,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -168.0
-offset_top = -268.0
+offset_top = -313.5
 offset_right = 168.0
-offset_bottom = 208.0
+offset_bottom = 162.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -25,39 +81,16 @@ grow_vertical = 2
 offset_right = 336.0
 offset_bottom = 45.0
 size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.533333, 0.121569, 0.054902, 1)
+theme_override_fonts/font = ExtResource("5_eiewd")
 theme_override_font_sizes/font_size = 30
-text = "Game Over"
+text = "Night's Over"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-offset_top = 198.0
-offset_right = 336.0
-offset_bottom = 278.0
-size_flags_vertical = 6
-
-[node name="Score" type="Label" parent="VBoxContainer/VBoxContainer"]
-offset_right = 336.0
-offset_bottom = 38.0
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 25
-text = "Score: 0"
-horizontal_alignment = 1
-
-[node name="Walpurgis" type="Label" parent="VBoxContainer/VBoxContainer"]
-offset_top = 42.0
-offset_right = 336.0
-offset_bottom = 80.0
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 25
-text = "Walpurgis will reward you..."
-
-[node name="PlayAgain" type="Button" parent="VBoxContainer"]
-offset_top = 440.0
-offset_right = 336.0
-offset_bottom = 476.0
-size_flags_vertical = 10
-theme_override_font_sizes/font_size = 20
-text = "Play Again"
+layout_mode = 2
+size_flags_vertical = 2
+theme = SubResource("Theme_tqcdp")
 
 [node name="GoodPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x4xpn")
@@ -71,4 +104,14 @@ bus = &"Music"
 stream = ExtResource("4_xijm1")
 bus = &"Music"
 
-[connection signal="pressed" from="VBoxContainer/PlayAgain" to="." method="_on_play_again_pressed"]
+[node name="Fond" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(960, 449.5)
+texture = ExtResource("7_tyo8o")
+
+[node name="ColorBg" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(960, 540)
+texture = ExtResource("8_uhghj")
+
+[connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]
