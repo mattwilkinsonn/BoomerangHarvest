@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdtbpoaju7kja"]
+[gd_scene load_steps=6 format=3 uid="uid://cdtbpoaju7kja"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_p42l8"]
 [ext_resource type="Texture2D" uid="uid://bxod6wl5hso4w" path="res://Assets/2DArt/UI/play_button.png" id="2_47y6r"]
 [ext_resource type="Texture2D" uid="uid://ctuyckyh7rmjf" path="res://Assets/2DArt/UI/title.png" id="2_ks7v5"]
+[ext_resource type="AudioStream" uid="uid://clxyagtganfst" path="res://Assets/Music/music_menu.mp3" id="5_3g6pf"]
 [ext_resource type="Texture2D" uid="uid://1ukp5yuhe4er" path="res://Assets/2DArt/UI/Color_BG.png" id="6_qar54"]
 
 [node name="MainMenu" type="Node2D"]
@@ -42,6 +43,7 @@ texture = ExtResource("6_qar54")
 metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3g6pf")
 autoplay = true
 bus = &"Music"
 
