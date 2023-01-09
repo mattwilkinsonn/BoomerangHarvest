@@ -8,7 +8,7 @@ const BombExplosionScene = preload("res://Game/Plant/Enemy/BombExplosion.tscn")
 var player
 
 func _ready():
-	player = get_node("../Player")
+	player = get_node("../../Player")
 	$LifeTimer.start(LIFE_TIME)
 
 

@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://xgmlfobb2vxp" path="res://Assets/Sfx/plant_explode.wav" id="2_o0xbh"]
 [ext_resource type="PackedScene" uid="uid://bmlvqvndu7w6q" path="res://Assets/2DArt/VFX/ExplosionVFX.tscn" id="3_4revp"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nwug3"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_nm4ni"]
 radius = 200.0
 
 [node name="BombExplosion" type="Area2D"]
@@ -14,7 +14,7 @@ script = ExtResource("1_ma5ea")
 COLOR = Color(1, 0.647059, 0, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_nwug3")
+shape = SubResource("CircleShape2D_nm4ni")
 
 [node name="LifeTimer" type="Timer" parent="."]
 one_shot = true

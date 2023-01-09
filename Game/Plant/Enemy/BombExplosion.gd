@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var EXPLOSION_TIME = 0.5
+@export var EXPLOSION_TIME = 0.2
 @export var EFFECT_TIME = 0.5
 @export var COLOR = Color.ORANGE
 
@@ -19,7 +19,7 @@ var explosion_state: ExplosionState = ExplosionState.STARTED
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player = get_node("../Player")
+	player = get_node("../../Player")
 	$LifeTimer.start(EXPLOSION_TIME)
 	$ExplosionPlayer.play()	
 	$ExplosionVFX.emitting = true
