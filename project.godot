@@ -82,6 +82,8 @@ Throw={
 2d_physics/layer_7="EffectArea"
 2d_physics/layer_8="Bomb"
 2d_physics/layer_9="BoomerangCutter"
+2d_physics/layer_10="PlayerBlocker"
+2d_physics/layer_11="BoomerangBouncer"
 
 [physics]
 

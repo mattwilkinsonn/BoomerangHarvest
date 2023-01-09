@@ -2,7 +2,7 @@ extends CanvasLayer
 
 signal play_again
 
-@export var GOOD_LINE = "Walpurgis will reward you..."
+@export var GOOD_LINE = "Walpurgis will reward YOU..."
 @export var GOOD_AMOUNT = 25
 @export var AVERAGE_LINE = "Walpurgis is satisfied"
 @export var AVERAGE_AMOUNT = 10
@@ -29,8 +29,8 @@ var score_state: ScoreState
 
 func init(player_score: int):
 	score = player_score
-	$VBoxContainer/VBoxContainer/Score.text = 'Harvested: ' + str(score)
-	$VBoxContainer/VBoxContainer/Walpurgis.text = get_line()
+	$Score.text = str(score)
+	$Walpurgis.text = get_line()
 	
 	play_fx()
 

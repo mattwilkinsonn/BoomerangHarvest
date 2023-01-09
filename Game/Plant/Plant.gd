@@ -28,6 +28,7 @@ var state: PlantState = PlantState.SAPLING:
 		if new_state == PlantState.HARVESTABLE:
 			$AnimatedSprite2D.position = Vector2(5, -19)
 			$AnimatedSprite2D.play("harvestable")
+			set_collision_layer_value(10, true)
 			
 		state = new_state
 var type: PlantType = PlantType.ZOMBIE
@@ -63,7 +64,7 @@ func spawn_enemy():
 	if type == PlantType.ZOMBIE:
 		var zombie = ZombieScene.instantiate()
 		zombie.global_position = global_position
-		get_parent().get_node("NavigationRegion2D").add_child(zombie)
+		get_parent().add_child(zombie)
 		return
 	var enemy = scene_for_type[type].instantiate()
 	enemy.global_position = global_position
