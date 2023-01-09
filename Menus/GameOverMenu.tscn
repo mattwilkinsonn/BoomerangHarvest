@@ -61,7 +61,6 @@ text = "Play Again"
 
 [node name="GoodPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x4xpn")
-autoplay = true
 bus = &"Music"
 
 [node name="AveragePlayer" type="AudioStreamPlayer" parent="."]

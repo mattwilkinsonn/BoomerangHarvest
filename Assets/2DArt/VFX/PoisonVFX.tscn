@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://yod22y0pppot"]
+[gd_scene load_steps=11 format=3 uid="uid://lu53hh2w2p7s"]
 
 [ext_resource type="Texture2D" uid="uid://bltpwejhprc1i" path="res://Assets/2DArt/Texture/soft_light02.png" id="1_32jqb"]
 
@@ -59,9 +59,9 @@ turbulence_noise_scale = 2.0
 turbulence_influence_min = 0.41
 turbulence_influence_max = 0.57
 
-[node name="Node2D" type="Node2D"]
+[node name="PoisonVFX" type="Node2D"]
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="PoisonCloud" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 40
 process_material = SubResource("ParticleProcessMaterial_qb6uc")

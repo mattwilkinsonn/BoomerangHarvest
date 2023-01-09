@@ -13,6 +13,7 @@ var player
 func _ready():
 	player = get_node("../Player")
 	$DeathTimer.start(LIFE_TIME)
+	$PoisonVFX/PoisonCloud.emitting = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
