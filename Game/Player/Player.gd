@@ -88,6 +88,13 @@ func set_movement(input_direction: Vector2):
 			movement_speed = SLOWED_MOVEMENT_SPEED
 	
 	velocity = input_direction * movement_speed
+	
+	if velocity.length() > 0 and not $WalkingPlayer.is_playing():
+		$WalkingPlayer.play()
+	if velocity.length() == 0 and $WalkingPlayer.is_playing():
+		$WalkingPlayer.stop()
+	
+	
 
 
 func _input(event):
@@ -130,6 +137,8 @@ func bump(direction: Vector2, type: BumpType):
 	bump_type = type
 	movement_state = MovementState.BUMPING
 	$BumpTimer.start(NUDGE_BUMP_TIME if bump_type == BumpType.NUDGE else EXPLOSION_BUMP_TIME)
+	if type == BumpType.NUDGE:
+		$BumpPlayer.play()
 
 func _on_bump_timer_timeout():
 	if movement_state == MovementState.BUMPING:

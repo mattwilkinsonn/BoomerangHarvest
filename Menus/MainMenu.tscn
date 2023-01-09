@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://1ukp5yuhe4er" path="res://Assets/2DArt/UI/Color_BG.png" id="6_qar54"]
 
 [sub_resource type="Theme" id="Theme_sjp72"]
+[gd_scene load_steps=3 format=3 uid="uid://cdtbpoaju7kja"]
+
+[ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_p42l8"]
+[ext_resource type="AudioStream" uid="uid://clxyagtganfst" path="res://Assets/Music/music_menu.mp3" id="2_huqyr"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_p42l8")
@@ -63,8 +67,6 @@ horizontal_alignment = 1
 offset_top = 176.0
 offset_right = 465.0
 offset_bottom = 350.0
-grow_horizontal = 2
-grow_vertical = 2
 size_flags_vertical = 10
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 30
@@ -75,5 +77,10 @@ icon_alignment = 1
 [node name="ColorBg" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("6_qar54")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_huqyr")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

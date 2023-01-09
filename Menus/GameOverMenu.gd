@@ -2,26 +2,55 @@ extends CanvasLayer
 
 signal play_again
 
-var score: int = 0
-
 @export var GOOD_LINE = "Walpurgis will reward you..."
 @export var GOOD_AMOUNT = 25
 @export var AVERAGE_LINE = "Walpurgis is satisfied"
 @export var AVERAGE_AMOUNT = 10
 @export var BAD_LINE = "Walpurgis is not happy"
 
+
+var score: int = 0:
+	get:
+		return score
+	set(new_score):
+		if new_score < AVERAGE_AMOUNT:
+			score_state = ScoreState.BAD
+		elif new_score < GOOD_AMOUNT:
+			score_state = ScoreState.AVERAGE
+		else:
+			score_state = ScoreState.GOOD
+		score = new_score
+enum ScoreState {
+	BAD,
+	AVERAGE,
+	GOOD
+}
+var score_state: ScoreState
+
 func init(player_score: int):
 	score = player_score
 	$VBoxContainer/VBoxContainer/Score.text = 'Harvested: ' + str(score)
-	$VBoxContainer/VBoxContainer/Walpurgis.text = get_line(score)
-
-func get_line(score: int):
-	if score < AVERAGE_AMOUNT:
-		return BAD_LINE
-	if score < GOOD_AMOUNT:
-		return AVERAGE_LINE
+	$VBoxContainer/VBoxContainer/Walpurgis.text = get_line()
 	
-	return GOOD_LINE
+	play_fx()
+
+func get_line() -> String:
+	match score_state:
+		ScoreState.BAD:
+			return BAD_LINE
+		ScoreState.AVERAGE:
+			return AVERAGE_LINE
+		ScoreState.GOOD, _:
+			return GOOD_LINE
+			
+func play_fx():
+	match score_state:
+		ScoreState.BAD:
+			$BadPlayer.play()
+		ScoreState.AVERAGE:
+			$AveragePlayer.play()
+		ScoreState.GOOD:
+			$GoodPlayer.play()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

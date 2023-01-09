@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://bfxff1op1auw"]
+[gd_scene load_steps=28 format=3 uid="uid://djp4g4ii22lxf"]
 
 [ext_resource type="Texture2D" uid="uid://cmrgs17pivx13" path="res://Assets/2DArt/Animated_Sprites/dead_ghosteffect.png" id="1_ecgt4"]
 [ext_resource type="Script" path="res://Game/Plant/PlantDeath.gd" id="1_iqluf"]
+[ext_resource type="AudioStream" uid="uid://by1i823di4u4x" path="res://Assets/Sfx/Plant/Plant_killed.wav" id="3_5q6en"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mpdrh"]
 atlas = ExtResource("1_ecgt4")
@@ -104,8 +105,6 @@ animations = [{
 }]
 
 [node name="PlantDeath" type="Node2D"]
-modulate = Color(1, 1, 1, 0.65098)
-scale = Vector2(0.8, 0.8)
 script = ExtResource("1_iqluf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -113,5 +112,8 @@ modulate = Color(1, 1, 1, 0.65098)
 position = Vector2(15, -90)
 scale = Vector2(0.8, 0.8)
 frames = SubResource("SpriteFrames_bws24")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5q6en")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

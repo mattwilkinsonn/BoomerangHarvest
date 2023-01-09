@@ -11,6 +11,11 @@
 
 [sub_resource type="Theme" id="Theme_tqcdp"]
 
+[ext_resource type="Script" path="res://Menus/GameOverMenu.gd" id="1_shxwq"]
+[ext_resource type="AudioStream" uid="uid://dguqlh4x6snac" path="res://Assets/Sfx/GameOver/highscore_great.wav" id="2_x4xpn"]
+[ext_resource type="AudioStream" uid="uid://te0freu3nfug" path="res://Assets/Sfx/GameOver/highscore_average.wav" id="3_et5a4"]
+[ext_resource type="AudioStream" uid="uid://wy8v3ag5dgqg" path="res://Assets/Sfx/GameOver/highscore.wav" id="4_xijm1"]
+
 [node name="GameOverMenu" type="CanvasLayer"]
 script = ExtResource("1_shxwq")
 
@@ -73,7 +78,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameOver" type="Label" parent="VBoxContainer"]
-layout_mode = 2
+offset_right = 336.0
+offset_bottom = 45.0
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0.533333, 0.121569, 0.054902, 1)
 theme_override_fonts/font = ExtResource("5_eiewd")
@@ -87,12 +93,16 @@ size_flags_vertical = 2
 theme = SubResource("Theme_tqcdp")
 
 [node name="GoodPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_1x70s")
-autoplay = true
+stream = ExtResource("2_x4xpn")
+bus = &"Music"
 
 [node name="AveragePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_et5a4")
+bus = &"Music"
 
 [node name="BadPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xijm1")
+bus = &"Music"
 
 [node name="Fond" type="Sprite2D" parent="."]
 z_index = -2
