@@ -21,7 +21,7 @@ var explosion_state: ExplosionState = ExplosionState.STARTED
 func _ready():
 	player = get_node("../../Player")
 	$LifeTimer.start(EXPLOSION_TIME)
-	$ExplosionPlayer.play()	
+	$ExplosionPlayer.play()
 	$ExplosionVFX.emitting = true
 	
 
