@@ -29,6 +29,9 @@ var score_state: ScoreState
 
 func init(player_score: int):
 	score = player_score
+	$Score.text = str(score)
+	$Macbeth.text = get_line()
+	play_fx()
 
 func get_line() -> String:
 	match score_state:
@@ -50,9 +53,7 @@ func play_fx():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Score.text = str(score)
-	$Macbeth.text = get_line()
-	play_fx()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

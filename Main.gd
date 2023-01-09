@@ -23,9 +23,9 @@ func _on_play():
 func _on_game_over(score: int):
 	game.queue_free()
 	current_menu = GameOverMenuScene.instantiate()
-	current_menu.init(score)
 	current_menu.play_again.connect(_on_play)
 	add_child(current_menu)
+	current_menu.init(score)	
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
